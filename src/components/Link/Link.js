@@ -1,8 +1,8 @@
 import './Link.css'
 
-const Link = ({src, location}) => {
+const Link = ({src, location, href}) => {
   return (
-      <img className='link' role='button' src={src} alt={`link to ${location}`} />
+    <a aria-label={`Link to ${location}`} className='link' href={href} target="_blank"><img src={src} alt={`link to ${location}`} /></a>  
     )
 }
 

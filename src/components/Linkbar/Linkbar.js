@@ -2,12 +2,11 @@ import './Linkbar.css'
 import Link from '../Link/Link'
 
 const Linkbar = ({links}) => {
-  const linkEls = links.map((link, i) => (<Link key={i} src={link.logo} location={link.location}/>))
+  const linkEls = links.map((link, i) => (<Link key={i} src={link.logo} location={link.location} href={link.href}/>))
   return (
     <div className="linkbar">
       {linkEls}
     </div>
-    
     )
 }
 
