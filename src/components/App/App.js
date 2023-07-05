@@ -1,19 +1,43 @@
 import './App.css';
+import {useState, useEffect} from 'react'
 import Navbar from '../Navbar/Navbar'
-import Linkbar from '../Linkbar/Linkbar'
-import githubLogo from '../../images/github-icon.png'
-import linkedInLogo from '../../images/linkedin-icon.png'
-import emailLogo from '../../images/email-icon.png'
-import cartoonLogo from '../../images/cartoon-brand-image.png'
+import Menu from '../Menu/Menu'
+import Home from '../Home/Home'
+
 
 const App = () => {
-  const homePageLinks = [{logo: githubLogo, location: 'GitHub', href: 'https://github.com/lauraguerra1'}, {logo: linkedInLogo, location: 'LinkedIn', href: 'https://www.linkedin.com/in/laura-garcia-guerra-b9b431170/'}, {logo: emailLogo, location: 'Laura Guerra\'s email', href: 'mailto: l.garciaguerra1@gmail.com'}]
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [smallScreen, setSmallScreen] = useState(false)
+  const [currentView, setCurrentView] = useState({mainShown: true, page: 'Home'})
+  
+  const changeScreenSizeMode = () => {
+    window.innerWidth < 625 
+      ? setSmallScreen(true) 
+      : setSmallScreen(false)
+  }
+
+  useEffect(() => {
+    changeScreenSizeMode()
+    window.addEventListener('resize', changeScreenSizeMode)
+    return () => window.removeEventListener('resize', changeScreenSizeMode)
+  }, [menuOpen])
+
+  useEffect(() => {
+    menuOpen && smallScreen 
+      ? setCurrentView(prev => ({...prev, mainShown: false}))
+      : setCurrentView(prev => ({...prev, mainShown: true}))
+  }, [menuOpen, smallScreen])
+
+  const clickMenu = () => {
+    setMenuOpen(prevState => !prevState)
+  }
+
   return (
     <>
-      <Navbar /> 
-      <main>
-        <img className='brand-logo' src={cartoonLogo} alt='Cartoon image of Laura Garcia Guerra, Software Engineer'/>
-        <Linkbar links={homePageLinks}/>
+      {!menuOpen && <Navbar clickMenu={clickMenu} />}
+      <main className={menuOpen ? 'row-flex' : ''}>
+        {menuOpen && <Menu clickMenu={clickMenu} currentView={currentView} setCurrentView={setCurrentView}/>}
+        {currentView.mainShown && currentView.page === 'Home' && <Home />}
       </main>
     </>
   );
