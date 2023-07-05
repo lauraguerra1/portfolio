@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import Navbar from '../Navbar/Navbar'
 import Menu from '../Menu/Menu'
 import Home from '../Home/Home'
+import About from '../About/About'
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
       <main className={menuOpen ? 'row-flex' : ''}>
         {menuOpen && <Menu clickMenu={clickMenu} currentView={currentView} setCurrentView={setCurrentView}/>}
         {currentView.mainShown && currentView.page === 'Home' && <Home />}
+        {currentView.mainShown && currentView.page === 'About Me' && <About />}
       </main>
     </>
   );
