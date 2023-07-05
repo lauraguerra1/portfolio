@@ -3,8 +3,10 @@ import './SingleProject.css'
 
 import github from '../../images/github-icon.png'
 import linkIcon from '../../images/link-icon.png'
+import { useState, useEffect } from 'react'
 
 const SingleProject = ({src, title, tech, link, gh, index}) => {
+  const [pictureFirst, setPictureFirst] = useState(true)
   const deployLink = {logo: linkIcon, location: `Laura Guerra\'s deployed ${title} project`, href: link}
   const repoLink = {logo: github, location: `Laura Guerra\'s ${title} project repository`, href: gh}
   
@@ -22,10 +24,21 @@ const SingleProject = ({src, title, tech, link, gh, index}) => {
     <p>Techologies:</p>
     <p>{techStack.join(' ')}</p>
   </div>
+
+  useEffect(() => {
+    const changePicDirection = () => {
+      index % 2 === 0 || window.innerWidth < 900 ? setPictureFirst(true) : setPictureFirst(false) 
+    }
+
+    window.addEventListener('resize', changePicDirection)
+    return () => window.removeEventListener('resize', changePicDirection)
+
+  })
+
   
   return (
     <section className='single-project'>
-      {index % 2 === 0 ? [projectImg, description] : [description, projectImg]}
+      {pictureFirst ? [projectImg, description] : [description, projectImg]}
     </section>
   )
 }
