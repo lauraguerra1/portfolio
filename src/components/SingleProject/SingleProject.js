@@ -2,8 +2,9 @@ import Linkbar from '../Linkbar/Linkbar'
 import './SingleProject.css'
 
 import github from '../../images/github-icon.png'
-import linkIcon from '../../images/link-icon.png'
+import linkIcon from '../../images/link.png'
 import { useState, useEffect } from 'react'
+import Link from '../Link/Link'
 
 const SingleProject = ({src, title, tech, link, gh, index}) => {
   const [pictureFirst, setPictureFirst] = useState(() => index % 2 === 0 || window.innerWidth < 900)
@@ -16,7 +17,7 @@ const SingleProject = ({src, title, tech, link, gh, index}) => {
       : `${item},`
   })
 
-  const projectImg = <img key={index + 'a'} className='project-img' src={src} alt={`Image of the ${title} project`}/>
+  const projectImg = <Link key={index + 'a'} src={src} location={deployLink.location} href={link}/>
   const description = 
   <div key={index + 'b'} className='descriptive-section single-project-section'>
     <h2>{title.toUpperCase()}</h2>

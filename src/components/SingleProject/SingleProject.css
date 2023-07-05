@@ -13,7 +13,7 @@
   padding: 3% 0%;
 }
 
-.project-img {
+.single-project > a > img {
   position: relative;
   height: 180px;
   min-width: 300px;
