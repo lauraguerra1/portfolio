@@ -11,12 +11,12 @@ const Projects = () => {
   
   const projectEls = projects.map((project, i) => (<Project key={i} src={project.img} title={project.title} tech={project.tech} link={project.link} gh={project.gh} index={i}/> ))
   return (
-    <>
+    <div className='main-project-page'>
     <h1>PROJECTS</h1>
     <section className='project-section'>
       {projectEls}
     </section>
-    </>
+    </div>
   )
 }
 
