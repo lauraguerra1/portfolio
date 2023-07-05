@@ -40,6 +40,27 @@ code {
 }
 
 h1 {
+  font-family: 'BIZ UDPMincho', serif;
   text-decoration: underline double rgba(253, 159, 206, 0.45);
   letter-spacing: 0.1rem;
+  font-weight: lighter;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+  background: #fbecec;
+  border-radius: 25px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffd9d9;
+  border-radius: 25px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffcbcb;
+} 
