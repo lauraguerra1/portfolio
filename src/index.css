@@ -43,4 +43,5 @@ h1 {
   font-family: 'BIZ UDPMincho', serif;
   text-decoration: underline double rgba(253, 159, 206, 0.45);
   letter-spacing: 0.1rem;
+  font-weight: lighter;
 }

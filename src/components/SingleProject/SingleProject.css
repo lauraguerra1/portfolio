@@ -5,27 +5,50 @@
   display: flex;
   min-height: 230px;
   display: flex; 
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 }
 
-.single-project img {
+.project-img {
   position: relative;
-  height: 80%;
+  height: 180px;
+  min-width: 300px;
   border-radius: 18px;
+  margin: 0% 1%;
 }
 
 .single-project-section {
-  width: 60%;
-  height: 80%;
+  height: 180px;
+  width: 300px;
   border-radius: 21px;
   background:  rgba(255, 255, 255, 0.535); 
   display: flex; 
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-around;
+  margin: 0% 1%;
+}
+
+.single-project-section img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 h2 {
   font-weight: lighter;
+}
+
+@media screen and (max-width: 875px) {
+  .single-project {
+    width: 60%;
+  }
+
+  .project-img {
+    margin: 2% 1%;
+  }
+  .single-project-section {
+    margin: 2% 1%;
+  }
 }
