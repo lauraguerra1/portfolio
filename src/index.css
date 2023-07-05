@@ -32,7 +32,14 @@ code {
   align-items: center;
 }
 
+.descriptive-section {
+  height: 100%;
+  width: 90%;
+  text-align: center;
+  font-family: 'BIZ UDPMincho', serif;
+}
+
 h1 {
-  text-decoration: underline wavy hotpink;
+  text-decoration: underline double rgba(253, 159, 206, 0.45);
   letter-spacing: 0.1rem;
 }
