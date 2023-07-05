@@ -1,3 +1,4 @@
+import './Project.css'
 import Project from '../SingleProject/SingleProject'
 
 const Projects = () => {

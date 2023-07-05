@@ -1,0 +1,31 @@
+.single-project {
+  border-radius: 21px;
+  background: rgba(229, 199, 229, 0.31);
+  width: 90%;
+  display: flex;
+  min-height: 230px;
+  display: flex; 
+  justify-content: space-around;
+  align-items: center;
+}
+
+.single-project img {
+  position: relative;
+  height: 80%;
+  border-radius: 18px;
+}
+
+.single-project-section {
+  width: 60%;
+  height: 80%;
+  border-radius: 21px;
+  background:  rgba(255, 255, 255, 0.535); 
+  display: flex; 
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+h2 {
+  font-weight: lighter;
+}

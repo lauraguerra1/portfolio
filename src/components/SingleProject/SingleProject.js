@@ -8,9 +8,9 @@ const SingleProject = ({src, title, tech}) => {
   })
   return (
     <section className='single-project'>
-      <div className='descriptive-section'>
-        <h2>{title}</h2>
-        <h3>Tech Stack:</h3>
+      <div className='descriptive-section single-project-section'>
+        <h2>{title.toUpperCase()}</h2>
+        <p>Techologies:</p>
         <p>{techStack.join(' ')}</p>
       </div>
       <img src={src} alt={`Image of the ${title} project`}/>
