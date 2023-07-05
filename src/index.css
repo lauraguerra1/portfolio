@@ -31,3 +31,8 @@ code {
   justify-content: center;
   align-items: center;
 }
+
+h1 {
+  text-decoration: underline wavy hotpink;
+  letter-spacing: 0.1rem;
+}

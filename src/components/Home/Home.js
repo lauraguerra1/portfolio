@@ -2,6 +2,7 @@ import Linkbar from '../Linkbar/Linkbar'
 import githubLogo from '../../images/github-icon.png'
 import linkedInLogo from '../../images/linkedin-icon.png'
 import emailLogo from '../../images/email-icon.png'
+import './Home.css'
 import cartoonLogo from '../../images/cartoon-brand-image.png'
 
 const Home = () => {
