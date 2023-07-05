@@ -4,6 +4,7 @@ import Navbar from '../Navbar/Navbar'
 import Menu from '../Menu/Menu'
 import Home from '../Home/Home'
 import About from '../About/About'
+import Projects from '../Projects/Projects'
 import Contact from '../Contact/Contact'
 
 import githubLogo from '../../images/github-icon.png'
@@ -46,6 +47,7 @@ const App = () => {
         {menuOpen && <Menu clickMenu={clickMenu} currentView={currentView} setCurrentView={setCurrentView}/>}
         {currentView.mainShown && currentView.page === 'Home' && <Home mainLinks={mainLinks}/>}
         {currentView.mainShown && currentView.page === 'About Me' && <About />}
+        {currentView.mainShown && currentView.page === 'Projects' && <Projects/>}
         {currentView.mainShown && currentView.page === 'Contact' && <Contact mainLinks={mainLinks}/>}
       </main>
     </>
