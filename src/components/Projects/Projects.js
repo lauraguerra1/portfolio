@@ -9,7 +9,7 @@ import rockpaperscissors from '../../images/rockpaperscissors.png'
 
 const Projects = () => {
   const projects = [
-    {title: 'Rancid Tomatillos', tech: ['React', 'HTML', 'CSS', 'Router', 'Cypress'], img:rancid, link: 'https://rancidtomatillos-3e0909ae5fad.herokuapp.com/'},
+    {title: 'Rancid Tomatillos', tech: ['React', 'HTML', 'CSS', 'Router', 'Cypress'], img:rancid, link: 'https://rancidtomatillos-3e0909ae5fad.herokuapp.com/', gh: 'https://github.com/lauraguerra1/rancid-tomatillos'},
     {title: 'Overlook', tech: ['JavaScript', 'HTML', 'CSS', 'Mocha/Chai'], img: overlook, link: 'https://lauraguerra1.github.io/overlook/', gh: 'https://github.com/lauraguerra1/overlook'},
     {title: 'What\'s Cookin', tech: ['JavaScript', 'HTML', 'CSS', 'Mocha/Chai'], img: whatscookin, link: 'https://lauraguerra1.github.io/whats-cookin/', gh: 'https://github.com/lauraguerra1/whats-cookin'},
     {title: 'Tic-Tac-Toe', tech: ['TypeScript', 'React'], img: tictactoe, link: 'https://tictactoe-react-ts-e79988b6b6bb.herokuapp.com/', gh: 'https://github.com/lauraguerra1/tic-tac-toe'},
