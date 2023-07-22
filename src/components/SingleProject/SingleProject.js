@@ -6,7 +6,7 @@ import linkIcon from '../../images/link.png'
 import { useState, useEffect } from 'react'
 import Link from '../Link/Link'
 
-const SingleProject = ({src, title, tech, link, gh, index}) => {
+const SingleProject = ({src, title, tech, link, gh, instructions, index}) => {
   const [pictureFirst, setPictureFirst] = useState(() => index % 2 === 0 || window.innerWidth < 900)
   const deployLink = {logo: linkIcon, location: `Laura Guerra\'s deployed ${title} project`, href: link}
   const repoLink = {logo: github, location: `Laura Guerra\'s ${title} project repository`, href: gh}
@@ -24,8 +24,10 @@ const SingleProject = ({src, title, tech, link, gh, index}) => {
     <Linkbar links={[deployLink, repoLink]}/>
     <p>Techologies:</p>
     <p>{techStack.join(' ')}</p>
+    {instructions && <p>{instructions.split(',')[0]}</p>}
+    {instructions && <p>{instructions.split(',')[1]}</p>}
   </div>
-
+  console.log('instructions', instructions)
 
 useEffect(() => {
   const changePicDirection = () => {
