@@ -1,6 +1,8 @@
 import './Project.css'
 import Project from '../SingleProject/SingleProject'
 
+import stylestash from '../../images/styleStash.png'
+import makeup360 from '../../images/makeup360.png'
 import rancid from '../../images/rancid.png'
 import whatscookin from '../../images/whatscookin.png'
 import overlook from '../../images/overlook.png'
@@ -9,6 +11,8 @@ import rockpaperscissors from '../../images/rockpaperscissors.png'
 
 const Projects = () => {
   const projects = [
+    {title: 'Style Stash', tech: ['Express.js', 'React', 'HTML', 'CSS', 'Router'], img:stylestash, link: 'https://style-stash.vercel.app/', gh: 'https://github.com/sakisandrac/style-stash'},
+    {title: 'Makeup 360', tech: ['React', 'TypeScript', 'HTML', 'CSS', 'Router', 'Cypress'], img:makeup360, link: 'https://makeup-360-2fc69bda168c.herokuapp.com/', gh: 'https://github.com/lauraguerra1/makeup-360'},
     {title: 'Rancid Tomatillos', tech: ['React', 'HTML', 'CSS', 'Router', 'Cypress'], img:rancid, link: 'https://rancidtomatillos-3e0909ae5fad.herokuapp.com/', gh: 'https://github.com/lauraguerra1/rancid-tomatillos'},
     {title: 'Overlook', tech: ['JavaScript', 'HTML', 'CSS', 'Mocha/Chai'], img: overlook, link: 'https://lauraguerra1.github.io/overlook/', gh: 'https://github.com/lauraguerra1/overlook', instructions: 'username: customer50,password: overlook2021'},
     {title: 'What\'s Cookin', tech: ['JavaScript', 'HTML', 'CSS', 'Mocha/Chai'], img: whatscookin, link: 'https://lauraguerra1.github.io/whats-cookin/', gh: 'https://github.com/lauraguerra1/whats-cookin'},
