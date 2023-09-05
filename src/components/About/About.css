@@ -1,0 +1,8 @@
+#aboutSection {
+  justify-content: flex-start;  
+}
+
+#aboutSection article {
+  height: 85vh;
+  overflow-y: scroll;
+}
