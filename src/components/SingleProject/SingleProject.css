@@ -15,17 +15,17 @@
 
 .single-project > a > img {
   position: relative;
-  height: 180px;
-  min-width: 300px;
+  height: 300px;
+  width: 400px;
+  object-fit: cover;
   border-radius: 18px;
   margin: 0% 1%;
 }
 
 .single-project-section {
-  height: 180px;
-  width: 300px;
+  height: auto;
+  width: 270px;
   border-radius: 21px;
-  background:  rgba(255, 255, 255, 0.535); 
   display: flex; 
   flex-wrap: wrap;
   flex-direction: column;
@@ -34,7 +34,7 @@
 }
 
 .single-project-section p {
-  margin: 0;
+  margin: 10px 0px;
 }
 
 .single-project-section img {
@@ -46,6 +46,14 @@
 h2 {
   font-weight: lighter;
   margin: 0;
+}
+
+.right {
+  animation: slideInRight 0.5s ease-in;
+}
+
+.left {
+  animation: slideInLeft 0.5s ease-in;
 }
 
 @media screen and (max-width: 900px) {
@@ -60,5 +68,6 @@ h2 {
 
   .single-project-section {
     margin: 2% 1%;
+    width: 300px
   }
 }

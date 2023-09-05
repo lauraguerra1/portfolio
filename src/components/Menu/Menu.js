@@ -1,4 +1,5 @@
 import './Menu.css'
+import closeBtn from '../../images/close.png'
 
 const Menu = ({clickMenu, currentView, setCurrentView}) => {
   const changeView = (view) => {
@@ -11,10 +12,10 @@ const Menu = ({clickMenu, currentView, setCurrentView}) => {
 
   return (
     <aside className='menu'>
-      <button aria-expanded='true' className="menu-button close-button material-symbols-outlined" onClick={clickMenu}>close</button>
+      <button aria-expanded='true' className="menu-button close-button" onClick={clickMenu}><img src={closeBtn} alt='close menu button' /></button>
       <div className='menu-buttons'>
         {menuButtons}
-        <a target='_blank' href='https://docs.google.com/document/d/1dBflBmkAOu7wCbJQrIY7XsgG6asjzAwJwWdqy5mzQnk/edit?usp=sharing'><button className="resume-button">view resume</button></a>
+        <a target='_blank' href='https://docs.google.com/document/d/1mkalo0tUL6Rm7mHgiLRLoHhdU0yokyzmL0WXbkr_d1U/edit?usp=sharing'><button className="resume-button">view resume</button></a>
       </div>
     </aside>
   )
