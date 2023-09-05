@@ -17,9 +17,14 @@
   position: relative;
   height: 300px;
   width: 400px;
+  max-width: 100%;
   object-fit: cover;
   border-radius: 18px;
   margin: 0% 1%;
+}
+
+.single-project > a {
+  max-width: 90%;
 }
 
 .single-project-section {
@@ -69,5 +74,20 @@ h2 {
   .single-project-section {
     margin: 2% 1%;
     width: 300px
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .brand-logo {
+    width: 95vw;
+  }
+
+  .single-project > a > img {
+    width:80vw;
+    height: 180px;
+  }
+
+  .single-project-section {
+    width: 80vw;
   }
 }
