@@ -68,3 +68,21 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: #ffcbcb;
 } 
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-400px);
+  }
+  100% {
+    transform: translate(0)
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(400px);
+  }
+  100% {
+    transform: translate(0)
+  }
+}

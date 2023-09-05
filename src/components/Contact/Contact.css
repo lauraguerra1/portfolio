@@ -12,6 +12,7 @@
 
 .contact-details {
   min-width: 60%;
+  animation: slideInRight 0.5s ease-in;
 }
 
 @media screen and (max-width: 1000px) {

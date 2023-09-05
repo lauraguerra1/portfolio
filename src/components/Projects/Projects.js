@@ -9,10 +9,12 @@ import whatscookin from '../../images/whatscookin.png'
 import overlook from '../../images/overlook.png'
 import tictactoe from '../../images/tictactoe.png'
 import rockpaperscissors from '../../images/rockpaperscissors.png'
+import projectPlanner from '../../images/projectplanner.png'
 
 const Projects = () => {
   const projects = [
-    {title: 'Style Stash', tech: ['Express.js', 'React', 'HTML', 'CSS', 'Router'], img:stylestash, link: 'https://style-stash.vercel.app/', gh: 'https://github.com/sakisandrac/style-stash'},
+    {title: 'Project Planner', tech: ['React, TypeScript', 'Open AI'], img:projectPlanner, link: 'https://project-planner-ui.vercel.app/', gh:'https://github.com/lauraguerra1/project-planner-ui' },
+    {title: 'Style Stash', tech: ['Express.js', 'React', 'HTML', 'CSS', 'Router'], img:stylestash, link: 'https://style-stash.vercel.app/', gh: 'https://github.com/lauraguerra1/style-stash'},
     {title: 'Pawfect Match', tech: ['React', 'TypeScript', 'HTML', 'CSS', 'Router', 'Cypress'], img: pawfect, link:'https://pawfect-match-laura.vercel.app/', gh:'https://github.com/lauraguerra1/pawfect-match'},
     {title: 'Makeup 360', tech: ['React', 'TypeScript', 'HTML', 'CSS', 'Router', 'Cypress'], img:makeup360, link: 'https://makeup-360.vercel.app/', gh: 'https://github.com/lauraguerra1/makeup-360'},
     {title: 'Rancid Tomatillos', tech: ['React', 'HTML', 'CSS', 'Router', 'Cypress'], img:rancid, link: 'https://rancid-tomatillos-laura.vercel.app/', gh: 'https://github.com/lauraguerra1/rancid-tomatillos'},
@@ -22,7 +24,7 @@ const Projects = () => {
     {title: 'Rock Paper Scissors', tech: ['JavaScript', 'HTML', 'CSS'], img: rockpaperscissors, link: 'https://lauraguerra1.github.io/rock-paper-scissors-project/', gh: 'https://github.com/lauraguerra1/rock-paper-scissors-project'}
   ]
   
-  const projectEls = projects.map((project, i) => (<Project key={i} src={project.img} title={project.title} tech={project.tech} link={project.link} gh={project.gh} index={i} instructions={project.instructions ? project.instructions : ''}/> ))
+  const projectEls = projects.map((project, i) => (<Project rightOrLeft={i % 2=== 0 ? 'right' : 'left'} key={i} src={project.img} title={project.title} tech={project.tech} link={project.link} gh={project.gh} index={i} instructions={project.instructions ? project.instructions : ''}/> ))
   return (
     <div className='main-project-page'>
     <h1>PROJECTS</h1>
