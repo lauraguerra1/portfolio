@@ -17,9 +17,14 @@
   position: relative;
   height: 300px;
   width: 400px;
+  max-width: 100%;
   object-fit: cover;
   border-radius: 18px;
   margin: 0% 1%;
+}
+
+.single-project > a {
+  max-width: 90%;
 }
 
 .single-project-section {
