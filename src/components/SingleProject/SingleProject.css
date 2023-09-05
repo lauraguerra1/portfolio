@@ -76,3 +76,18 @@ h2 {
     width: 300px
   }
 }
+
+@media screen and (max-width: 300px) {
+  .brand-logo {
+    width: 95vw;
+  }
+
+  .single-project > a > img {
+    width:80vw;
+    height: 180px;
+  }
+
+  .single-project-section {
+    width: 80vw;
+  }
+}
