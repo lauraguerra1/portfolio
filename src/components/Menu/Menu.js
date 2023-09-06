@@ -1,5 +1,6 @@
 import './Menu.css'
 import closeBtn from '../../images/close.png'
+import {Link} from 'react-router-dom'
 
 const Menu = ({clickMenu, currentView, setCurrentView}) => {
   const changeView = (view) => {
@@ -7,8 +8,10 @@ const Menu = ({clickMenu, currentView, setCurrentView}) => {
     setCurrentView(prevView => ({...prevView, page: view}))
   }
 
-  const availableViews = ['Home', 'About Me', 'Projects', 'Contact'].filter(view => view !== currentView.page)
-  const menuButtons = availableViews.map((view, i) => (<button key={i} className='menu-button page-button' onClick={() => changeView(view)}>{view}</button>))
+  const availableViews = [{ name: 'Home', path: '/' }, { name: 'About Me', path: '/about-me' }, { name: 'Projects', path: '/projects' }, { name: 'Contact', path: '/contact' }].filter(view => view.name !== currentView.page)
+  const menuButtons = availableViews.map((view, i) => {
+    return (<Link key={view.name} to={view.path}><button key={i} className='menu-button page-button' onClick={() => changeView(view.name)}>{view.name}</button></Link>)
+  })
 
   return (
     <aside className='menu'>
