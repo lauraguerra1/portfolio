@@ -2,7 +2,13 @@
   justify-content: flex-start;  
 }
 
-#aboutSection article {
+.about-pic {
+  width: 200px;
+  max-width: 90vw;
+  border-radius: 50%;
+}
+
+.scroll-about-section {
   height: 85vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
