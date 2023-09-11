@@ -39,7 +39,7 @@ code {
   font-family: 'BIZ UDPMincho', serif;
 }
 
-h1 {
+h1, .heading-link {
   font-family: 'BIZ UDPMincho', serif;
   text-decoration: underline double rgba(253, 159, 206, 0.45);
   letter-spacing: 0.1rem;
@@ -84,5 +84,26 @@ button {
   }
   100% {
     transform: translate(0)
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeInRegular {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
   }
 }

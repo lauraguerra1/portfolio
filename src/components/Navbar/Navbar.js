@@ -12,12 +12,13 @@ const Navbar = ({smallScreen, clickMenu}) => {
         </nav>
         : 
         <nav className='nav'>
-          {/* <div className='nav-buttons'> */}
+          <NavLink to='/' className='heading-link'>Laura G</NavLink>
+          <div className='nav-buttons'>
             <NavLink className='nav-link' to='/'>Home</NavLink>
             <NavLink className='nav-link' to='/about-me'>About</NavLink>
             <NavLink className='nav-link' to='/projects'>Projects</NavLink>
             <NavLink className='nav-link' to='/contact'>Contact</NavLink>
-          {/* </div> */}
+          </div>
           {/* <a target='_blank' href='https://docs.google.com/document/d/1mkalo0tUL6Rm7mHgiLRLoHhdU0yokyzmL0WXbkr_d1U/edit?usp=sharing'><button className="resume-button">view resume</button></a> */}
         </nav>
       }

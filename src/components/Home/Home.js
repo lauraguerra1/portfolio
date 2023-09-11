@@ -8,7 +8,7 @@ const Home = ({smallScreen, mainLinks}) => {
       <img className='brand-logo' src={cartoonLogo} alt='Cartoon image of Laura Garcia Guerra, Software Engineer'/>
       <Linkbar links={mainLinks} />
       {!smallScreen && 
-        <a target='_blank' href='https://docs.google.com/document/d/1mkalo0tUL6Rm7mHgiLRLoHhdU0yokyzmL0WXbkr_d1U/edit?usp=sharing'><button className="resume-button home-resume">view resume</button></a>
+        <a target='_blank' href='https://docs.google.com/document/d/1mkalo0tUL6Rm7mHgiLRLoHhdU0yokyzmL0WXbkr_d1U/edit?usp=sharing'><button className="resume-button" id='homeResumeBtn'>view resume</button></a>
       }
     </section>
   )

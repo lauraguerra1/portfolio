@@ -1,6 +1,7 @@
 #aboutSection {
   justify-content: flex-start;  
   height: 90vh;
+  animation: fadeInRegular 1s ease-in;
 }
 
 .about-pic {
