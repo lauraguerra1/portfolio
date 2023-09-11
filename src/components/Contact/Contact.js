@@ -14,7 +14,7 @@ const Contact = ({mainLinks}) => {
         <img className='brand-logo' src={lggLogo} alt='Laura Garcia Guerra brand logo'/>
         <div className='contact-details'>
             <div className='meeting'>
-              <p>Let's Meet:</p>
+              <p>Schedule a meeting here:</p>
               <Link src={schedule} location={'Laura Guerra\'s Schedule'} href={'https://calendly.com/laura-guerra-calendar/30min'}/>
             </div>
             <p>Email: l.garciaguerra1@gmail.com</p>

@@ -15,7 +15,7 @@ import { Route, Routes } from 'react-router';
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [smallScreen, setSmallScreen] = useState(false)
+  const [smallScreen, setSmallScreen] = useState(true)
   const [currentView, setCurrentView] = useState({mainShown: true, page: 'Home'})
   const mainLinks = [{logo: githubLogo, location: 'GitHub', href: 'https://github.com/lauraguerra1'}, {logo: linkedInLogo, location: 'LinkedIn', href: 'https://www.linkedin.com/in/laura-garcia-guerra-b9b431170/'}, {logo: emailLogo, location: 'Laura Guerra\'s email', href: 'mailto: l.garciaguerra1@gmail.com'}]
 
