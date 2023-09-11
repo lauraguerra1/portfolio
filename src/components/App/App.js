@@ -43,12 +43,12 @@ const App = () => {
 
   return (
     <>
-      {!menuOpen && <Navbar clickMenu={clickMenu} />}
+      {!menuOpen && <Navbar smallScreen={smallScreen} clickMenu={clickMenu} />}
       <main className={menuOpen ? 'row-flex' : ''}>
         {menuOpen && <Menu clickMenu={clickMenu} currentView={currentView} setCurrentView={setCurrentView}/>}
         {currentView.mainShown &&
           <Routes>
-            <Route path='/' element={<Home mainLinks={mainLinks} />} />
+            <Route path='/' element={<Home smallScreen={smallScreen} mainLinks={mainLinks} />} />
             <Route path='/about-me' element={<About mainLinks={[mainLinks[1], mainLinks[2]]} />} />
             <Route path='/projects' element={<Projects/>} />
             <Route path='/contact' element={<Contact mainLinks={mainLinks}/>} />

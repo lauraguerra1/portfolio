@@ -6,3 +6,9 @@
   margin-right: 2%;
   animation: slideInLeft 0.5s ease-in;
 }
+
+.home-resume {
+  background-color: #F6E4F6;
+  margin: 20px;
+  animation: fadeIn 1.5s ease-in;
+}
