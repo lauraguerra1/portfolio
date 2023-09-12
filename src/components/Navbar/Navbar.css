@@ -24,3 +24,34 @@
   cursor: pointer;
   min-width: 150px;
 }
+
+.nav-link {
+  color: black; 
+  text-decoration: none;
+  text-align: center;
+  font-family: 'BIZ UDPMincho', serif;
+  font-size: 20px;
+  margin: 0px 1%;
+}
+
+.nav-link.active {
+  border-bottom: 1px solid black;
+}
+
+.nav-buttons {
+  width: 40%;
+  display: flex; 
+  justify-content: space-around;
+}
+
+.heading-link {
+  margin-left: 10px; 
+  font-size: 20px;
+  color: black;
+}
+
+@media screen and (max-width: 1000px) {
+  .nav-buttons {
+    width: 60%;
+  }
+}

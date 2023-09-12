@@ -6,7 +6,7 @@ import linkIcon from '../../images/link.png'
 import { useState, useEffect } from 'react'
 import Link from '../Link/Link'
 
-const SingleProject = ({rightOrLeft, src, title, tech, link, gh, instructions, index}) => {
+const SingleProject = ({projectDescription, rightOrLeft, src, title, tech, link, gh, instructions, index}) => {
   const [pictureFirst, setPictureFirst] = useState(() => index % 2 === 0 || window.innerWidth < 900)
   const deployLink = {logo: linkIcon, location: `Laura Guerra\'s deployed ${title} project`, href: link}
   const repoLink = {logo: github, location: `Laura Guerra\'s ${title} project repository`, href: gh}
@@ -20,13 +20,14 @@ const SingleProject = ({rightOrLeft, src, title, tech, link, gh, instructions, i
   const projectImg = <Link key={index + 'a'} src={src} location={deployLink.location} href={link}/>
   const description = 
     <div key={index + 'b'} className='descriptive-section single-project-section'>
-    <h2>{title.toUpperCase()}</h2>
-    <Linkbar links={[deployLink, repoLink]}/>
-    <p>Techologies:</p>
-    <p>{techStack.join(' ')}</p>
-    {instructions && <p>{instructions.split(',')[0]}</p>}
-    {instructions && <p>{instructions.split(',')[1]}</p>}
-  </div>
+      <h2>{title.toUpperCase()}</h2>
+      <p>{projectDescription}</p>
+      <p>Techologies:</p>
+      <p>{techStack.join(' ')}</p>
+      {instructions && <p>{instructions.split(',')[0]}</p>}
+      {instructions && <p>{instructions.split(',')[1]}</p>}
+      <Linkbar links={[deployLink, repoLink]}/>
+    </div>
   console.log('instructions', instructions)
 
 useEffect(() => {

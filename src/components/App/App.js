@@ -15,7 +15,7 @@ import { Route, Routes } from 'react-router';
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [smallScreen, setSmallScreen] = useState(false)
+  const [smallScreen, setSmallScreen] = useState(true)
   const [currentView, setCurrentView] = useState({mainShown: true, page: 'Home'})
   const mainLinks = [{logo: githubLogo, location: 'GitHub', href: 'https://github.com/lauraguerra1'}, {logo: linkedInLogo, location: 'LinkedIn', href: 'https://www.linkedin.com/in/laura-garcia-guerra-b9b431170/'}, {logo: emailLogo, location: 'Laura Guerra\'s email', href: 'mailto: l.garciaguerra1@gmail.com'}]
 
@@ -43,12 +43,12 @@ const App = () => {
 
   return (
     <>
-      {!menuOpen && <Navbar clickMenu={clickMenu} />}
+      {!menuOpen && <Navbar smallScreen={smallScreen} clickMenu={clickMenu} />}
       <main className={menuOpen ? 'row-flex' : ''}>
         {menuOpen && <Menu clickMenu={clickMenu} currentView={currentView} setCurrentView={setCurrentView}/>}
         {currentView.mainShown &&
           <Routes>
-            <Route path='/' element={<Home mainLinks={mainLinks} />} />
+            <Route path='/' element={<Home smallScreen={smallScreen} mainLinks={mainLinks} />} />
             <Route path='/about-me' element={<About mainLinks={[mainLinks[1], mainLinks[2]]} />} />
             <Route path='/projects' element={<Projects/>} />
             <Route path='/contact' element={<Contact mainLinks={mainLinks}/>} />

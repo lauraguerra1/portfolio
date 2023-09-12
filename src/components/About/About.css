@@ -1,5 +1,7 @@
 #aboutSection {
   justify-content: flex-start;  
+  height: 90vh;
+  animation: fadeInRegular 1s ease-in;
 }
 
 .about-pic {
@@ -8,7 +10,7 @@
   border-radius: 50%;
 }
 
-.scroll-about-section {
-  height: 85vh;
+.about-article {
+  height: 55vh;
   overflow-y: auto;
 }
