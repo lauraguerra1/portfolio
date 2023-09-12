@@ -5,7 +5,7 @@
 .brand-logo {
   animation: slideInLeft 0.5s ease-in;
   max-width: 90vw;
-  margin-right: 5vw;
+  margin-right: 1%;
   justify-self: center;
 }
 
