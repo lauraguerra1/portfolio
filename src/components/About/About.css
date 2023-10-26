@@ -9,8 +9,3 @@
   max-width: 90vw;
   border-radius: 50%;
 }
-
-.about-article {
-  height: 55vh;
-  overflow-y: auto;
-}

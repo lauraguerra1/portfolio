@@ -42,7 +42,7 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className='app'>
       {!menuOpen && <Navbar smallScreen={smallScreen} clickMenu={clickMenu} />}
       <main className={menuOpen ? 'row-flex' : ''}>
         {menuOpen && <Menu clickMenu={clickMenu} currentView={currentView} setCurrentView={setCurrentView}/>}
@@ -55,7 +55,7 @@ const App = () => {
           </Routes>
         }
       </main>
-    </>
+    </div>
   );
 }
 
