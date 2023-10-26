@@ -2,7 +2,7 @@ import './Menu.css'
 import closeBtn from '../../images/close.png'
 import {Link} from 'react-router-dom'
 
-const Menu = ({clickMenu, currentView, setCurrentView}) => {
+const Menu = ({clickMenu, setCurrentView}) => {
   const changeView = (view) => {
     clickMenu()
     setCurrentView(prevView => ({...prevView, page: view}))

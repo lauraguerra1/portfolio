@@ -43,6 +43,7 @@
 
 @media screen and (max-width: 625px) {
   .menu {
-    width: 100%
+    width: 100%;
+    box-shadow: none;
   }
 }
