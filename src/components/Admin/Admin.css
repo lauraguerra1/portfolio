@@ -1,0 +1,7 @@
+.selected-option {
+  border: 1px solid red; 
+}
+
+.pointer {
+  cursor: pointer;
+}
