@@ -30,7 +30,8 @@ const Admin = ({ updateError, logIn }) => {
   const submitProject = (e) => {
     e.preventDefault()
     const {title, description, link, gh, image, tech, loginInfo, username, password} = project
-    console.log({title, description, link, gh, image, tech, instructions: loginInfo? `${username},${password}` : null})
+    console.log({ title, description, link, gh, image, tech, instructions: loginInfo ? `${username},${password}` : null })
+    setProject(freshProject)
   }
   const mainInputs = ['Title', 'Description', 'Tech', 'Link', 'Gh', 'Image'].map(input => {
     const updateInputValue = updateProject(input.toLowerCase());
