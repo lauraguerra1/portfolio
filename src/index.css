@@ -51,6 +51,7 @@ h1, .heading-link {
 
 button {
   color: black;
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {

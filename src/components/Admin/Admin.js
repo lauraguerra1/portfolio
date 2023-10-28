@@ -72,15 +72,17 @@ const Admin = ({ updateError, logIn }) => {
         <div className='display-grid'>
           {mainInputs}
         </div>
-        <p>Login Instructions Needed? </p> 
-        <div>
-          <p className={`${project.loginInfo ? 'selected-option' : ''} pointer`} onClick={() => {
-            setProject(prev => ({...prev, loginInfo: !prev.loginInfo}))
-          }}>Yes</p>
+        <div className='instructions-options'>
+          <p>Login Instructions Needed? </p> 
+          <div className='toggler'>
+            <button type='button' className={`${project.loginInfo ? 'selected-option' : 'unselected-option'} pointer yes`} onClick={() => {
+              setProject(prev => ({...prev, loginInfo: !prev.loginInfo}))
+            }}>Yes</button>
 
-          <p className={`${project.loginInfo ? '' : 'selected-option'} pointer`}onClick={() => {
-            setProject(prev => ({...prev, loginInfo: !prev.loginInfo}))
-          }}>No</p>
+            <button  type='button' className={`${project.loginInfo ? 'unselected-option' : 'selected-option'} pointer no`}onClick={() => {
+              setProject(prev => ({...prev, loginInfo: !prev.loginInfo}))
+            }}>No</button>
+          </div>
         </div>
         {
           project.loginInfo &&

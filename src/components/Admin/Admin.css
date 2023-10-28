@@ -1,5 +1,28 @@
+.unselected-option {
+  background-color: white; 
+  border: 3px solid white;
+}
+
 .selected-option {
-  border: 1px solid red; 
+  border: 1px solid pink;
+}
+
+.yes {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.no {
+  border-radius: 0px 5px 5px 0px;
+}
+
+.instructions-options {
+  display: flex; 
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.instructions-options p {
+  margin-right: 20px;
 }
 
 .pointer {
@@ -39,7 +62,7 @@ form, form button, input {
   font-family: 'BIZ UDPMincho', serif
 }
 
-form button {
+form  > button {
   background: #00000000;
   border: 1px solid black;
   padding: 5px 10px; 
@@ -48,7 +71,26 @@ form button {
 
 form {
   margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
+.toggler {
+  display: flex; 
+  width: 140px;
+}
 
+.toggler button { 
+  width: 70px;
+}
+
+@media screen and (max-width: 500px) {
+  .display-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instructions-options {
+    flex-direction: column;
+    align-items: start;
+  }
+}
 
