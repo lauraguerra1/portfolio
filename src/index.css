@@ -25,6 +25,10 @@ code {
   justify-content: space-between;
 }
 
+.align-self-start {
+  align-self: start
+}
+
 .column-flex {
   display: flex;
   flex-direction: column;

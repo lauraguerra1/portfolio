@@ -6,7 +6,7 @@ import './Admin.css'
 //create login function that sets user in app 
 
 const Admin = ({ updateError, logIn }) => {
-  const [project, setProject] = useState({
+  const freshProject = {
     title: '', 
     description: '',
     tech: '', 
@@ -16,12 +16,31 @@ const Admin = ({ updateError, logIn }) => {
     loginInfo: false, 
     username: '', 
     password: ''
-  })
+  }
+  const [project, setProject] = useState(freshProject)
 
   useEffect(() => {
     console.log('loading admin page ')
   }, [])
-  const mainInputs = ['title', 'description', 'tech', 'link', 'gh', 'image']
+ 
+  const updateProject = (inputName) => {
+    return (event) => setProject(prev => ({ ...prev, [inputName]: event.target.value }))
+  }
+
+  const submitProject = (e) => {
+    e.preventDefault()
+    const {title, description, link, gh, image, tech, loginInfo, username, password} = project
+    console.log({title, description, link, gh, image, tech, instructions: loginInfo? `${username},${password}` : null})
+  }
+  const mainInputs = ['Title', 'Description', 'Tech', 'Link', 'Gh', 'Image'].map(input => {
+    const updateInputValue = updateProject(input.toLowerCase());
+    return (
+      <div className='column-flex' key={input}>
+        <label htmlFor={input.toLowerCase()} className='align-self-start'>{input === 'Gh' ? 'GitHub': input}</label>  
+        <input type='text' id={input.toLowerCase()} name={input.toLowerCase()} onChange={updateInputValue} value={project[input.toLowerCase()]} required/>
+      </div>
+    )
+  })
     return (
         // <GoogleLogin
         //     shape='pill'
@@ -48,16 +67,17 @@ const Admin = ({ updateError, logIn }) => {
         //     }}
       // />
 
-      <form>
+      <form onSubmit={submitProject}>
         <div className='column-flex'>
-          <label>Title  <input type='text' name='title' /></label>
+          {/* <label>Title  <input type='text' name='title' /></label>
           <input type='text' name='title' />
           <input type='textarea' name='description' />
           <input type='text' name='tech' />
           <input type='text' name='link' />
           <input type='text' name='gh' />
           <input type='text' name='image' />
-          <input type='text' name='image' />
+          <input type='text' name='image' /> */}
+          {mainInputs}
         </div>
         <p>Login Instructions Needed? </p> 
         <div>
@@ -72,11 +92,12 @@ const Admin = ({ updateError, logIn }) => {
         {
           project.loginInfo &&
           <div>
-            <input type='text' name='username' />
-            <input type='text' name='password'/>
+              <input type='text' name='username' value={project.username} onChange={(e) => updateProject(e.target.name)(e)} required/>
+              <input type='text' name='password' value={project.password} onChange={(e) => updateProject(e.target.name)(e)} required/>
 
           </div>
         }
+        <button>Add Project</button>
       </form>
   )
 }
