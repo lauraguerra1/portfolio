@@ -2,6 +2,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import React, { useEffect, useState } from 'react'
 import jwtDecode from 'jwt-decode';
 import './Admin.css'
+import SingleProject from '../SingleProject/SingleProject';
 //import getAuthorizedUser from '../apiCalls.js';
 //create login function that sets user in app 
 
@@ -67,39 +68,50 @@ const Admin = ({ updateError, logIn }) => {
         //         updateError(new Error('Login Failed. Please try again with different credentials.'))
         //     }}
       // />
-
-      <form onSubmit={submitProject} className='w-80 column-flex-default'>
-        <div className='display-grid'>
-          {mainInputs}
-        </div>
-        <div className='instructions-options'>
-          <p>Login Instructions Needed? </p> 
-          <div className='toggler'>
-            <button type='button' className={`${project.loginInfo ? 'selected-option' : 'unselected-option'} pointer yes`} onClick={() => {
-              setProject(prev => ({...prev, loginInfo: !prev.loginInfo}))
-            }}>Yes</button>
-
-            <button  type='button' className={`${project.loginInfo ? 'unselected-option' : 'selected-option'} pointer no`}onClick={() => {
-              setProject(prev => ({...prev, loginInfo: !prev.loginInfo}))
-            }}>No</button>
-          </div>
-        </div>
-        {
-          project.loginInfo &&
+      <>
+        <form onSubmit={submitProject} className='w-80 column-flex-default'>
           <div className='display-grid'>
-              <div className='column-flex-default form-piece'>
-                <label htmlFor='username' className='align-self-start'>Username</label>  
-                <input type='text' id='username' name='username' value={project.username} onChange={(e) => updateProject(e.target.name)(e)} required/>
-              </div>
-              <div className='column-flex-default form-piece'>
-                <label htmlFor='password' className='align-self-start'>Password</label>  
-                <input type='text' id='password' name='password' value={project.password} onChange={(e) => updateProject(e.target.name)(e)} required/>
-              </div>
+            {mainInputs}
           </div>
-        }
-                <button>Add Project</button>
+          <div className='instructions-options'>
+            <p>Login Instructions Needed? </p> 
+            <div className='toggler'>
+              <button type='button' className={`${project.loginInfo ? 'selected-option' : 'unselected-option'} pointer yes`} onClick={() => {
+                setProject(prev => ({...prev, loginInfo: !prev.loginInfo}))
+              }}>Yes</button>
 
-      </form>
+              <button  type='button' className={`${project.loginInfo ? 'unselected-option' : 'selected-option'} pointer no`}onClick={() => {
+                setProject(prev => ({...prev, loginInfo: !prev.loginInfo}))
+              }}>No</button>
+            </div>
+          </div>
+          {
+            project.loginInfo &&
+            <div className='display-grid'>
+                <div className='column-flex-default form-piece'>
+                  <label htmlFor='username' className='align-self-start'>Username</label>  
+                  <input type='text' id='username' name='username' value={project.username} onChange={(e) => updateProject(e.target.name)(e)} required/>
+                </div>
+                <div className='column-flex-default form-piece'>
+                  <label htmlFor='password' className='align-self-start'>Password</label>  
+                  <input type='text' id='password' name='password' value={project.password} onChange={(e) => updateProject(e.target.name)(e)} required/>
+                </div>
+            </div>
+          }
+          <button>Add Project</button>
+        </form>
+        <SingleProject
+          title={project.title}
+          tech={project.tech}
+          projectDescription={project.description}
+          src={project.image}
+          link={project.link}
+          gh={project.gh}
+          instructions={project.loginInfo ? `${project.username},${project.password}` : null}
+          index={0}
+          // rightOrLeft={'left'}
+        />
+      </>
   )
 }
 
