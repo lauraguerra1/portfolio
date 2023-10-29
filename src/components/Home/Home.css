@@ -1,6 +1,7 @@
 .home-section {
   width: 100%;
   overflow-x: hidden;
+  margin: auto;
 }
 
 .brand-logo {
