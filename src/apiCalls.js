@@ -1,10 +1,22 @@
-const getAuthorizedUser = async(jwt) => {
-  const res = await fetch(`https://lgg-portfolio-api.vercel.app/api/v1/users/${jwt}`);
-  if (!res.ok) {
-    throw new Error(`Error ${res.status}: Please try again.`)
+const handleError = async (response) => {
+  if (!response.ok) {
+    throw new Error(`Error ${response.status}: Please try again.`)
   }
-  const data = await res.json()
+  const data = await response.json()
   return data;
 }
 
-export {getAuthorizedUser}
+const getInfo = (mainEndpoint) => {
+  return async(jwt) => {
+    const res = await fetch(`https://lgg-portfolio-api.vercel.app/api/v1/${mainEndpoint}${jwt ? `/${jwt}`: ''}`);
+    const data = await handleError(res)
+    return data
+  }
+}
+const getAuthorizedUser = getInfo('users')
+
+const getProjects = getInfo('projects')
+
+
+
+export {getAuthorizedUser, getProjects}

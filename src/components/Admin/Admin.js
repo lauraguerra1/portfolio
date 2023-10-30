@@ -53,8 +53,6 @@ const Admin = () => {
               shape='pill'
               size='large'
               onSuccess={async credentialResponse => {
-                console.log('jwt', credentialResponse.credential)
-                console.log('user', jwtDecode(credentialResponse.credential).sub)
                 try {
                   const user = await getAuthorizedUser(credentialResponse.credential)
                   
