@@ -9,6 +9,10 @@ main {
   align-items: center;
 }
 
+.plain-bg {
+  background: #FAEEFB
+}
+
 .app {
   max-height: 100vh;
   overflow: hidden;
