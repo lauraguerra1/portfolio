@@ -4,10 +4,13 @@ import jwtDecode from 'jwt-decode';
 import './Admin.css'
 import SingleProject from '../SingleProject/SingleProject';
 import NewProjectForm from './NewProjectForm/NewProjectForm';
-//import getAuthorizedUser from '../apiCalls.js';
+import {getAuthorizedUser} from '../../apiCalls.js';
+import { useNavigate } from 'react-router-dom';
 //create login function that sets user in app 
 
-const Admin = ({ updateError, logIn }) => {
+const Admin = () => {
+  const navigate = useNavigate();
+
   const freshProject = {
     title: '', 
     description: '',
@@ -42,50 +45,51 @@ const Admin = ({ updateError, logIn }) => {
   return (
     <>
     {
-      !user.isAuthorized ? 
-        <GoogleLogin
-          shape='pill'
-          size='large'
-          onSuccess={async credentialResponse => {
-            console.log('jwt', credentialResponse.credential)
-            console.log('user', jwtDecode(credentialResponse.credential).sub)
-            // try {
-              //   const user = await getAuthorizedUser({jwt: credentialResponse.credential})
-              
-            //   if (user.isAuthorized) {
-            //       setUser(user)
-                //     // logIn(user)
-                //     console.log('user is authorized ')
-                //   } else {
-                  //     throw new Error('Login Failed. Please try again with different credentials.')
-                  //   }
+        !user.isAuthorized ? 
+          <>
+            <h1>ADMIN</h1>
+            <p style={{textAlign: 'center'}}>This page is intended for portfolio administrator use only. Attempting to log in as a non-admin user will redirect you to the home page!</p>
+            <GoogleLogin
+              shape='pill'
+              size='large'
+              onSuccess={async credentialResponse => {
+                console.log('jwt', credentialResponse.credential)
+                console.log('user', jwtDecode(credentialResponse.credential).sub)
+                try {
+                  const user = await getAuthorizedUser(credentialResponse.credential)
                   
-                  //   } catch (error) {
-                    //       updateError(new Error('Login Failed. Please try again with different credentials.'))
-                    //   }
-                  }}
-                  onError={() => {
-                    updateError(new Error('Login Failed. Please try again with different credentials.'))
-                  }}
-              />
-            : 
-              
-            <>
-            <NewProjectForm updateProject={updateProject} project={project} submitProject={submitProject} adjustLoginNeeded={adjustLoginNeeded} />
-    <SingleProject
-      title={project.title}
-      tech={project.tech}
-      projectDescription={project.description}
-      src={project.image}
-      link={project.link}
-      gh={project.gh}
-      instructions={project.loginInfo ? `${project.username},${project.password}` : null}
-      index={0}
-    />
+                  if (user.isAuthorized) {
+                    setUser(user)
+                  } else {
+                    throw new Error('Login Failed. Please try again with different credentials.') 
+                  }     
+                } catch (error) {
+                  navigate('/')
+                }
+                }
+              }
+              onError={() => {
+                navigate('/')
+              }}
+            />
+          </>
+        :    
+        <>
+          <NewProjectForm updateProject={updateProject} project={project} submitProject={submitProject} adjustLoginNeeded={adjustLoginNeeded} />
+          <SingleProject
+            title={project.title}
+            tech={project.tech}
+            projectDescription={project.description}
+            src={project.image}
+            link={project.link}
+            gh={project.gh}
+            instructions={project.loginInfo ? `${project.username},${project.password}` : null}
+            index={0}
+          />
+        </>
+    }
     </>
-  }
-  </>
-    )
+  )
 }
 
 export default Admin

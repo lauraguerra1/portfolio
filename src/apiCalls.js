@@ -1,5 +1,5 @@
 const getAuthorizedUser = async(jwt) => {
-  const res = await fetch(`https://lgg-portfolio-api.vercel.app/api/v1/${jwt}`);
+  const res = await fetch(`https://lgg-portfolio-api.vercel.app/api/v1/users/${jwt}`);
   if (!res.ok) {
     throw new Error(`Error ${res.status}: Please try again.`)
   }

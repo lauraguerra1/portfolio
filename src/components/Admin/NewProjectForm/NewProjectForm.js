@@ -1,8 +1,9 @@
 import SingleProject from '../../SingleProject/SingleProject';
 
-const NewProjectForm = (updateProject, submitProject, project, adjustLoginNeeded) => {
+const NewProjectForm = ({updateProject, submitProject, project, adjustLoginNeeded}) => {
 
   const mainInputs = ['Title', 'Description', 'Tech', 'Link', 'Gh', 'Image'].map(input => {
+    console.log('updateProject', updateProject)
     const updateInputValue = updateProject(input.toLowerCase());
     return (
       <div className='column-flex-default form-piece' key={input}>
@@ -13,8 +14,8 @@ const NewProjectForm = (updateProject, submitProject, project, adjustLoginNeeded
   })
 
   return (
-    <>
-      <form onSubmit={submitProject} className='w-80 column-flex-default'>
+    <form onSubmit={submitProject} className='w-80 column-flex-default'>
+      <h1 style={{textAlign: 'center', marginBottom: '30px'}}>New Project</h1>
         <div className='display-grid'>
           {mainInputs}
         </div>
@@ -41,17 +42,6 @@ const NewProjectForm = (updateProject, submitProject, project, adjustLoginNeeded
         }
         <button>Add Project</button>
       </form>
-      <SingleProject
-        title={project.title}
-        tech={project.tech}
-        projectDescription={project.description}
-        src={project.image}
-        link={project.link}
-        gh={project.gh}
-        instructions={project.loginInfo ? `${project.username},${project.password}` : null}
-        index={0}
-      />
-    </>
   )
 }
 
