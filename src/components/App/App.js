@@ -13,6 +13,7 @@ import { Route, Routes } from 'react-router';
 import Admin from '../Admin/Admin';
 import { gapi } from 'gapi-script';
 import { getProjects } from '../../apiCalls';
+import Empty from '../Empty/Empty';
 
 
 const App = () => {
@@ -88,7 +89,7 @@ const App = () => {
             <Route path='/projects' element={<Projects projects={projects} loading={loading} />} />
             <Route path='/contact' element={<Contact mainLinks={mainLinks}/>} />
             <Route path='/admin' element={<Admin updateError={updateError} />} />
-            {['', '/'].map(route => <Route path={route + '*'} element={<p>Nothing here</p>} />)}
+            {['', '/'].map(route => <Route path={route + '*'} element={<Empty />} />)}
           </Routes>
         }
       </main>

@@ -1,0 +1,13 @@
+.link {
+  text-decoration: none; 
+  color: black;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.link:hover {
+  background: rgba(242, 213, 218, 0.841);
+}
