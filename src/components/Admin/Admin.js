@@ -45,7 +45,6 @@ const Admin = ({updateError}) => {
   const adjustLoginNeeded = () => setProject(prev => ({...prev, loginInfo: !prev.loginInfo}))
 
   useEffect(() => {
-    //try and see if there is a user either in localstorage or in cookies 
     return () => updateError(null)
   }, [])
 

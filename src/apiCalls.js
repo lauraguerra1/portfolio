@@ -7,7 +7,7 @@ const handleError = async (response) => {
 }
 
 const fetchEndpoint = (mainEndpoint) => {
-  return async(jwt) => {
+  return async (jwt) => {
     const res = await fetch(`https://lgg-portfolio-api.vercel.app/api/v1/${mainEndpoint}${jwt ? `/${jwt}`: ''}`);
     const data = await handleError(res)
     return data
