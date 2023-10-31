@@ -4,11 +4,11 @@ import jwtDecode from 'jwt-decode';
 import './Admin.css'
 import SingleProject from '../SingleProject/SingleProject';
 import NewProjectForm from './NewProjectForm/NewProjectForm';
-import {getAuthorizedUser} from '../../apiCalls.js';
+import {getAuthorizedUser, postProject} from '../../apiCalls.js';
 import { useNavigate } from 'react-router-dom';
 //create login function that sets user in app 
 
-const Admin = () => {
+const Admin = ({updateError}) => {
   const navigate = useNavigate();
 
   const freshProject = {
@@ -24,22 +24,29 @@ const Admin = () => {
   }
   const [project, setProject] = useState(freshProject)
   const [user, setUser] = useState({ isAuthorized: false })
+  const [postSuccess, setPostSuccess] = useState('')
 
   const updateProject = (inputName) => {
     return (event) => setProject(prev => ({ ...prev, [inputName]: event.target.value }))
   }
 
-  const submitProject = (e) => {
+  const submitProject = async (e) => {
     e.preventDefault()
-    const {title, description, link, gh, image, tech, loginInfo, username, password} = project
-    console.log({ title, description, link, gh, image, tech, instructions: loginInfo ? `${username},${password}` : null })
-    setProject(freshProject)
+    const { title, description, link, gh, image, tech, loginInfo, username, password } = project
+    try {
+      await postProject({ title, description, link, gh, image, tech, instructions: loginInfo ? `${username},${password}` : null })
+      setProject(freshProject)
+      setPostSuccess(`${title} added successfully!`)
+    } catch (error) {
+      updateError(error)
+    }
   }
 
   const adjustLoginNeeded = () => setProject(prev => ({...prev, loginInfo: !prev.loginInfo}))
 
   useEffect(() => {
     //try and see if there is a user either in localstorage or in cookies 
+    return () => updateError(null)
   }, [])
 
   return (
@@ -72,8 +79,9 @@ const Admin = () => {
             />
           </>
         :    
-        <>
-          <NewProjectForm updateProject={updateProject} project={project} submitProject={submitProject} adjustLoginNeeded={adjustLoginNeeded} />
+          <>
+          <NewProjectForm updateProject={updateProject} project={project} submitProject={submitProject} adjustLoginNeeded={adjustLoginNeeded} setPostSuccess={setPostSuccess}/>
+          <p>{postSuccess}</p>
           <SingleProject
             title={project.title}
             tech={project.tech}

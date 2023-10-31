@@ -22,7 +22,6 @@ const SingleProject = ({projectDescription, rightOrLeft, src, title, tech, link,
       {instructions && <p>password: {instructions.split(',')[1]}</p>}
       <Linkbar links={[deployLink, repoLink]}/>
     </div>
-  console.log('instructions', instructions)
 
 useEffect(() => {
   const changePicDirection = () => {
