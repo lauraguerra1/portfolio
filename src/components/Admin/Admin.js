@@ -4,7 +4,7 @@ import jwtDecode from 'jwt-decode';
 import './Admin.css'
 import SingleProject from '../SingleProject/SingleProject';
 import NewProjectForm from './NewProjectForm/NewProjectForm';
-import {getAuthorizedUser, postProject} from '../../apiCalls.js';
+import {getAuthorizedUser, postProject, deleteProject} from '../../apiCalls.js';
 import { useNavigate } from 'react-router-dom';
 import Projects from '../Projects/Projects';
 //create login function that sets user in app 
@@ -42,6 +42,15 @@ const Admin = ({updateError, projects, setProjects}) => {
       setPostSuccess(`${title} added successfully!`)
     } catch (error) {
       updateError(error)
+    }
+  }
+
+  const removeProject = async (id) => {
+    try {
+      await deleteProject(id)
+      setProjects(prev => prev.filter(proj => proj.id !== id))
+    } catch (err) {
+      updateError(err)
     }
   }
 
@@ -95,7 +104,7 @@ const Admin = ({updateError, projects, setProjects}) => {
             instructions={project.loginInfo ? `${project.username},${project.password}` : null}
             index={0}
             />
-            <Projects projects={projects} loading={false} />
+            <Projects projects={projects} loading={false} deleteProject={removeProject} />
         </>
     }
     </>

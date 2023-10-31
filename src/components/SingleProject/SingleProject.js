@@ -6,7 +6,7 @@ import linkIcon from '../../images/link.png'
 import { useState, useEffect } from 'react'
 import Link from '../Link/Link'
 
-const SingleProject = ({projectDescription, rightOrLeft, src, title, tech, link, gh, instructions, index}) => {
+const SingleProject = ({deleteProject, projectDescription, rightOrLeft, src, title, tech, link, gh, instructions, index, id}) => {
   const [pictureFirst, setPictureFirst] = useState(() => index % 2 === 0 || window.innerWidth < 900)
   const deployLink = {logo: linkIcon, location: `Laura Guerra\'s deployed ${title} project`, href: link}
   const repoLink = {logo: github, location: `Laura Guerra\'s ${title} project repository`, href: gh}
@@ -35,6 +35,7 @@ useEffect(() => {
   
   return (
     <section className={`single-project ${rightOrLeft}`}>
+      {deleteProject && <button onClick={() => deleteProject(id)}>X</button>}
       {pictureFirst ? [projectImg, description] : [description, projectImg]}
     </section>
   )

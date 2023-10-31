@@ -30,5 +30,16 @@ const postProject = async (project) => {
   return data
 }
 
+const deleteProject = async (projectID) => {
+  const res = await fetch(`https://lgg-portfolio-api.vercel.app/api/v1/projects/${projectID}`, {
+    method: 'DELETE', 
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
 
-export {getAuthorizedUser, getProjects, postProject}
+  const data = handleError(res)
+  return data
+}
+
+export {getAuthorizedUser, getProjects, postProject, deleteProject}

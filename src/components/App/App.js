@@ -86,7 +86,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Home smallScreen={smallScreen} mainLinks={mainLinks} />} />
             <Route path='/about-me' element={<About mainLinks={[mainLinks[1], mainLinks[2]]} />} />
-            <Route path='/projects' element={<Projects projects={projects} loading={loading} />} />
+            <Route path='/projects' element={<Projects projects={projects} loading={loading} deleteProject={null} />} />
             <Route path='/contact' element={<Contact mainLinks={mainLinks}/>} />
             <Route path='/admin' element={<Admin updateError={updateError} projects={projects} setProjects={setProjects} />} />
             {['', '/'].map((route, i) => <Route key={i} path={route + '*'} element={<Empty />} />)}
