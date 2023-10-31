@@ -35,7 +35,7 @@ useEffect(() => {
   
   return (
     <section className={`single-project ${rightOrLeft}`}>
-      {deleteProject && <button onClick={() => deleteProject(id)}>X</button>}
+      {deleteProject && <button className='delete-btn material-symbols-outlined' onClick={() => deleteProject(id)}>delete</button>}
       {pictureFirst ? [projectImg, description] : [description, projectImg]}
     </section>
   )

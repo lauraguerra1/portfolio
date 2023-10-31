@@ -92,8 +92,7 @@ const Admin = ({updateError, projects, setProjects}) => {
         :    
           <>
           <NewProjectForm updateProject={updateProject} project={project} submitProject={submitProject} adjustLoginNeeded={adjustLoginNeeded} setPostSuccess={setPostSuccess}/>
-            <p>{postSuccess}</p>
-           
+          <p className='post-success'>{postSuccess}</p>
           <SingleProject
             title={project.title}
             tech={project.tech}
