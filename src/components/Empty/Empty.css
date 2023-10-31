@@ -1,0 +1,33 @@
+.empty-page {
+  animation: fadeInRegular 2s ease-in;
+  max-width: 90vw;
+}
+
+.empty-link {
+  text-decoration: none; 
+  color: black;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.empty-link:hover {
+  background: rgba(242, 213, 218, 0.841);
+}
+
+.spin {
+  animation: spinning 12s linear 0.5s infinite;
+  max-width: 90vw;
+}
+
+@keyframes spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

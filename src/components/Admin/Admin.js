@@ -4,11 +4,12 @@ import jwtDecode from 'jwt-decode';
 import './Admin.css'
 import SingleProject from '../SingleProject/SingleProject';
 import NewProjectForm from './NewProjectForm/NewProjectForm';
-import {getAuthorizedUser} from '../../apiCalls.js';
+import {getAuthorizedUser, postProject, deleteProject} from '../../apiCalls.js';
 import { useNavigate } from 'react-router-dom';
+import Projects from '../Projects/Projects';
 //create login function that sets user in app 
 
-const Admin = () => {
+const Admin = ({updateError, projects, setProjects}) => {
   const navigate = useNavigate();
 
   const freshProject = {
@@ -24,22 +25,39 @@ const Admin = () => {
   }
   const [project, setProject] = useState(freshProject)
   const [user, setUser] = useState({ isAuthorized: false })
+  const [postSuccess, setPostSuccess] = useState('')
 
   const updateProject = (inputName) => {
     return (event) => setProject(prev => ({ ...prev, [inputName]: event.target.value }))
   }
 
-  const submitProject = (e) => {
+  const submitProject = async (e) => {
     e.preventDefault()
-    const {title, description, link, gh, image, tech, loginInfo, username, password} = project
-    console.log({ title, description, link, gh, image, tech, instructions: loginInfo ? `${username},${password}` : null })
-    setProject(freshProject)
+    const { title, description, link, gh, image, tech, loginInfo, username, password } = project
+    try {
+      const newProject = await postProject({ title, description, link, gh, image, tech, instructions: loginInfo ? `${username},${password}` : null })
+      console.log('newprojec', newProject)
+      setProjects(prev => [newProject.data, ...prev])
+      setProject(freshProject)
+      setPostSuccess(`${title} added successfully!`)
+    } catch (error) {
+      updateError(error)
+    }
+  }
+
+  const removeProject = async (id) => {
+    try {
+      await deleteProject(id)
+      setProjects(prev => prev.filter(proj => proj.id !== id))
+    } catch (err) {
+      updateError(err)
+    }
   }
 
   const adjustLoginNeeded = () => setProject(prev => ({...prev, loginInfo: !prev.loginInfo}))
 
   useEffect(() => {
-    //try and see if there is a user either in localstorage or in cookies 
+    return () => updateError(null)
   }, [])
 
   return (
@@ -53,8 +71,6 @@ const Admin = () => {
               shape='pill'
               size='large'
               onSuccess={async credentialResponse => {
-                console.log('jwt', credentialResponse.credential)
-                console.log('user', jwtDecode(credentialResponse.credential).sub)
                 try {
                   const user = await getAuthorizedUser(credentialResponse.credential)
                   
@@ -74,8 +90,9 @@ const Admin = () => {
             />
           </>
         :    
-        <>
-          <NewProjectForm updateProject={updateProject} project={project} submitProject={submitProject} adjustLoginNeeded={adjustLoginNeeded} />
+          <>
+          <NewProjectForm updateProject={updateProject} project={project} submitProject={submitProject} adjustLoginNeeded={adjustLoginNeeded} setPostSuccess={setPostSuccess}/>
+          <p className='post-success'>{postSuccess}</p>
           <SingleProject
             title={project.title}
             tech={project.tech}
@@ -85,7 +102,8 @@ const Admin = () => {
             gh={project.gh}
             instructions={project.loginInfo ? `${project.username},${project.password}` : null}
             index={0}
-          />
+            />
+            <Projects projects={projects} loading={false} deleteProject={removeProject} />
         </>
     }
     </>

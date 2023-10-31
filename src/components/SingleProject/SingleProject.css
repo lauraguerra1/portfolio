@@ -11,6 +11,7 @@
   align-items: center;
   margin: 3%;
   padding: 3% 0%;
+  position: relative;
 }
 
 .single-project > a > img {
@@ -51,6 +52,21 @@
 h2 {
   font-weight: lighter;
   margin: 0;
+}
+
+.delete-btn {
+  background: rgb(244, 205, 211); 
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .right {
