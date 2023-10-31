@@ -6,9 +6,10 @@ import SingleProject from '../SingleProject/SingleProject';
 import NewProjectForm from './NewProjectForm/NewProjectForm';
 import {getAuthorizedUser, postProject} from '../../apiCalls.js';
 import { useNavigate } from 'react-router-dom';
+import Projects from '../Projects/Projects';
 //create login function that sets user in app 
 
-const Admin = ({updateError}) => {
+const Admin = ({updateError, projects, setProjects}) => {
   const navigate = useNavigate();
 
   const freshProject = {
@@ -34,7 +35,9 @@ const Admin = ({updateError}) => {
     e.preventDefault()
     const { title, description, link, gh, image, tech, loginInfo, username, password } = project
     try {
-      await postProject({ title, description, link, gh, image, tech, instructions: loginInfo ? `${username},${password}` : null })
+      const newProject = await postProject({ title, description, link, gh, image, tech, instructions: loginInfo ? `${username},${password}` : null })
+      console.log('newprojec', newProject)
+      setProjects(prev => [newProject.data, ...prev])
       setProject(freshProject)
       setPostSuccess(`${title} added successfully!`)
     } catch (error) {
@@ -80,7 +83,8 @@ const Admin = ({updateError}) => {
         :    
           <>
           <NewProjectForm updateProject={updateProject} project={project} submitProject={submitProject} adjustLoginNeeded={adjustLoginNeeded} setPostSuccess={setPostSuccess}/>
-          <p>{postSuccess}</p>
+            <p>{postSuccess}</p>
+           
           <SingleProject
             title={project.title}
             tech={project.tech}
@@ -90,7 +94,8 @@ const Admin = ({updateError}) => {
             gh={project.gh}
             instructions={project.loginInfo ? `${project.username},${project.password}` : null}
             index={0}
-          />
+            />
+            <Projects projects={projects} loading={false} />
         </>
     }
     </>
