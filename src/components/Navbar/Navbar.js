@@ -16,7 +16,7 @@ const Navbar = ({smallScreen, clickMenu}) => {
           <NavLink to='/' className='heading-link'><img src={codeLogo} alt='Laura Garcia Guerra Logo, angle bracket code symbol withthe letters L G' /></NavLink>
           <div className='nav-buttons'>
             <NavLink className='nav-link' to='/'>HOME</NavLink>
-            <NavLink className='nav-link' to='/about-me'>ABOUT</NavLink>
+            <NavLink className='nav-link' to='/about'>ABOUT</NavLink>
             <NavLink className='nav-link' to='/projects'>PROJECTS</NavLink>
             <NavLink className='nav-link' to='/contact'>CONTACT</NavLink>
           </div>

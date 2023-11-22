@@ -8,7 +8,7 @@ const Menu = ({clickMenu, setCurrentView}) => {
     setCurrentView(prevView => ({...prevView, page: view}))
   }
 
-  const menuButtons = [{ name: 'Home', path: '/' }, { name: 'About Me', path: '/about-me' }, { name: 'Projects', path: '/projects' }, { name: 'Contact', path: '/contact' }].map((view, i) => {
+  const menuButtons = [{ name: 'HOME', path: '/' }, { name: 'ABOUT', path: '/about' }, { name: 'PROJECTS', path: '/projects' }, { name: 'CONTACT', path: '/contact' }].map((view, i) => {
     return (<Link key={view.name} to={view.path}><button key={i} className='menu-button page-button' onClick={() => changeView(view.name)}>{view.name}</button></Link>)
   })
 
