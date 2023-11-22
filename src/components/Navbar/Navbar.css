@@ -1,7 +1,7 @@
 .nav {
   background-color: #fff;
   border-bottom: 3px solid lightgray;
-  height: 60px;
+  height: 70px;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -46,10 +46,7 @@
 
 .heading-link img {
   margin-left: 20px; 
-  /* color: black;
-   */
-   width: 100px;
-   /* height */
+  width: 100px;
 }
 
 @media screen and (max-width: 1000px) {

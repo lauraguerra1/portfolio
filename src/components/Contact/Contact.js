@@ -8,8 +8,8 @@ import schedule from '../../images/schedule-icon.png'
 
 const Contact = ({mainLinks}) => {
   return (
-    <section className='column-flex descriptive-section'>
-      <h1>CONTACT</h1>
+    <section className='column-flex descriptive-section contact-section'>
+      <h1 className='page-header'>CONTACT</h1>
       <div className='contact-details-container'>
         <img className='brand-logo' src={lggLogo} alt='Laura Garcia Guerra brand logo'/>
         <div className='contact-details'>
