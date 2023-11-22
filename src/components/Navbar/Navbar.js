@@ -1,5 +1,6 @@
 import './Navbar.css'
 import menuBtn from '../../images/menu.png'
+import codeLogo from '../../images/CodeLogo.png'
 import { NavLink } from 'react-router-dom';
 
 const Navbar = ({smallScreen, clickMenu}) => {
@@ -12,7 +13,7 @@ const Navbar = ({smallScreen, clickMenu}) => {
         </nav>
         : 
         <nav className='nav'>
-          <NavLink to='/' className='heading-link'>Laura G</NavLink>
+          <NavLink to='/' className='heading-link'><img src={codeLogo} alt='Laura Garcia Guerra Logo, angle bracket code symbol withthe letters L G' /></NavLink>
           <div className='nav-buttons'>
             <NavLink className='nav-link' to='/'>Home</NavLink>
             <NavLink className='nav-link' to='/about-me'>About</NavLink>
