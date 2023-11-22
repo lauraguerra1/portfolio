@@ -1,17 +1,38 @@
 .home-section {
-  width: 100%;
+  width: 85%;
+  height: 65%;
   overflow-x: hidden;
   margin: auto;
+  background: rgba(255, 255, 255, 0.80);
+  justify-content: center;
 }
 
 .brand-logo {
-  animation: slideInLeft 0.5s ease-in;
-  max-width: 90vw;
-  margin-right: 1%;
+  animation: fadeInRegular 0.7s ease-in;
+  width: 350px;
+  max-width: 80vw;
 }
 
 #homeResumeBtn {
-  background-color: #F6E4F6;
+  background-color: #F5F0E5;
   margin: 20px;
-  animation: fadeIn 1.5s ease-in;
+  animation: fadeIn 2s ease-in;
+}
+
+#homeName {
+  animation: fadeInRegular 1.5s ease-in;
+  letter-spacing: 3.5px;
+  text-align: center;
+  font-size: 30px
+}
+
+#homeSE {
+  animation: fadeInRegular 1.5s ease-in;
+  letter-spacing: 3px;
+  text-align: center;
+  font-style: italic;
+  font-size: 25px;
+  margin: 0;
+  font-family: 'Alegreya', serif;
+  font-weight: lighter;
 }
