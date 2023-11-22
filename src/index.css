@@ -82,17 +82,17 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: #fbecec;
-  border-radius: 25px;
+  background: #f5f0e5cd;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ffd9d9;
-  border-radius: 25px;
+  background: #eadec5;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffcbcb;
+  background: #e4d6b7;
 } 
 
 @keyframes slideInLeft {

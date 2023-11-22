@@ -1,6 +1,6 @@
 .single-project {
-  border-radius: 21px;
-  background: rgba(229, 199, 229, 0.31);
+  border-radius: 15px;
+  background: rgba(238, 236, 233, 0.53);
   width: 90%;
   max-width: 700px;
   display: flex;
@@ -12,6 +12,7 @@
   margin: 3%;
   padding: 3% 0%;
   position: relative;
+  animation: fadeInRegular 1.5s ease-in;
 }
 
 .single-project > a > img {
@@ -67,14 +68,6 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.right {
-  animation: slideInRight 0.5s ease-in;
-}
-
-.left {
-  animation: slideInLeft 0.5s ease-in;
 }
 
 @media screen and (max-width: 900px) {
