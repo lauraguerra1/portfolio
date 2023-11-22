@@ -1,16 +1,10 @@
 main {
-  background: linear-gradient(180deg, #F6E4F6 0%, rgba(227, 227, 227, 0.00) 100%);  
   height: 100vh;
   overflow-y : auto;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
-}
-
-.plain-bg {
-  background: #FAEEFB
 }
 
 .app {

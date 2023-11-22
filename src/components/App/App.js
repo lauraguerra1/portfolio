@@ -79,7 +79,7 @@ const App = () => {
   return (
     <div className='app'>
       {!menuOpen && <Navbar smallScreen={smallScreen} clickMenu={clickMenu} />}
-      <main className={menuOpen ? 'row-flex plain-bg' : ''}>
+      <main className={menuOpen ? 'row-flex' : ''}>
         {error && <p>{error.message}</p>}
         {menuOpen && <Menu clickMenu={clickMenu} setCurrentView={setCurrentView}/>}
         {currentView.mainShown &&
