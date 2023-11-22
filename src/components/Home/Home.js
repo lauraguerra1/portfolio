@@ -2,7 +2,7 @@ import Linkbar from '../Linkbar/Linkbar'
 import './Home.css'
 import codeLogo from '../../images/CodeLogo.png'
 
-const Home = ({smallScreen, mainLinks}) => { 
+const Home = ({smallScreen}) => { 
   return (
     <section className='column-flex home-section'>
       <img className='brand-logo' src={codeLogo} alt='Cartoon image of Laura Garcia Guerra, Software Engineer'/>

@@ -1,8 +1,7 @@
 import './About.css'
-import self from '../../images/self.jpeg'
-import Linkbar from '../Linkbar/Linkbar';
+
 import { Link } from 'react-router-dom';
-const About = ({mainLinks}) => {
+const About = () => {
   const font = {fontSize: '20px'}
   return (
     <section className='column-flex descriptive-section' id='aboutSection'>
