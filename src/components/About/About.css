@@ -9,6 +9,11 @@
   animation: fadeInRegular 1s ease-in;
 }
 
+.scroll-about-section {
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
 .scroll-about-section p {
   word-wrap: wrap;
 }
