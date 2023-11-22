@@ -1,12 +1,8 @@
 import './Contact.css'
-
-import Linkbar from '../Linkbar/Linkbar'
 import Link from '../Link/Link'
-
-import lggLogo from '../../images/lgg-logo.png'
 import schedule from '../../images/schedule-icon.png'
 
-const Contact = ({mainLinks}) => {
+const Contact = () => {
   return (
     <section className='column-flex descriptive-section contact-section'>
       <div className='contact-details-container'>
@@ -14,8 +10,8 @@ const Contact = ({mainLinks}) => {
           <h1 style={{ textAlign: 'left' }}>CONTACT INFORMATION</h1>
           <p style={{ textAlign: 'left', fontSize: '18px'}}>Email: l.garciaguerra1@gmail.com</p>
           <p style={{ textAlign: 'left', fontSize: '18px' }}>Phone: 310-770-6009</p>
-          <a href='www.linkedIn.com' target='_blank'>Visit LinkedIn</a>
-          <a href='www.linkedIn.com' target='_blank'>Visit GitHub</a>
+          <a className='contact-btn' href='https://www.linkedin.com/in/laura-garcia-guerra/' target='_blank'>Visit LinkedIn</a>
+          <a className='contact-btn' href='https://github.com/lauraguerra1' target='_blank'>Visit GitHub</a>
         </div>
         <div className='contact-details'>
           <div className='meeting'>
@@ -26,7 +22,6 @@ const Contact = ({mainLinks}) => {
           <p>Phone: (310)770-6009</p>
         </div>
       </div>
-      <Linkbar links={mainLinks}/>
     </section>
   )
 }
