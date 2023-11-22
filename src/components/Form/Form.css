@@ -1,0 +1,28 @@
+.inquiry-form {
+  display: grid;
+  grid-template-columns: 1fr, 1fr;
+}
+
+.form-element {
+  display: flex; 
+  justify-content: center;
+  border-bottom: 1px solid black;
+}
+
+.form-element label {
+  padding-right: 5px;
+  font-size: 18px;
+}
+
+.form-input {
+  border: none;
+  background: none;
+}
+
+.form-input:focus {
+  outline: none;
+}
+
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
