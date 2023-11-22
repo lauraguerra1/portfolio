@@ -44,7 +44,6 @@ code {
 
 h1, .heading-link {
   font-family: 'Cormorant Garamond', serif;
-  text-decoration: underline double rgba(253, 159, 206, 0.45);
   letter-spacing: 0.1rem;
   font-weight: lighter;
 }

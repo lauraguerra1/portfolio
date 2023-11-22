@@ -1,5 +1,4 @@
 .nav {
-  background: #FAEEFB;
   border-bottom: 3px solid lightgray;
   height: 60px;
   position: relative;
@@ -16,11 +15,12 @@
 }
 
 .resume-button {
-  border-radius: 25px;
+  /* border-radius: 25px; */
   border: none;
   padding: 5% 8%;
-  background: #FFF;
+  background: #F5F0E5;
   font-family: 'Cormorant Garamond', serif;
+  font-size: large;
   cursor: pointer;
   min-width: 150px;
 }

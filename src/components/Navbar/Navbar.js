@@ -15,12 +15,11 @@ const Navbar = ({smallScreen, clickMenu}) => {
         <nav className='nav'>
           <NavLink to='/' className='heading-link'><img src={codeLogo} alt='Laura Garcia Guerra Logo, angle bracket code symbol withthe letters L G' /></NavLink>
           <div className='nav-buttons'>
-            <NavLink className='nav-link' to='/'>Home</NavLink>
-            <NavLink className='nav-link' to='/about-me'>About</NavLink>
-            <NavLink className='nav-link' to='/projects'>Projects</NavLink>
-            <NavLink className='nav-link' to='/contact'>Contact</NavLink>
+            <NavLink className='nav-link' to='/'>HOME</NavLink>
+            <NavLink className='nav-link' to='/about-me'>ABOUT</NavLink>
+            <NavLink className='nav-link' to='/projects'>PROJECTS</NavLink>
+            <NavLink className='nav-link' to='/contact'>CONTACT</NavLink>
           </div>
-          {/* <a target='_blank' href='https://docs.google.com/document/d/1mkalo0tUL6Rm7mHgiLRLoHhdU0yokyzmL0WXbkr_d1U/edit?usp=sharing'><button className="resume-button">view resume</button></a> */}
         </nav>
       }
 
