@@ -1,3 +1,15 @@
+.admin {
+  padding: 10px;
+  max-height: 80vh;
+  /* background: white; */
+  text-align: center;
+  margin: auto;
+}
+
+.google-container {
+  display: flex;
+  justify-content: center;
+}
 .unselected-option {
   background-color: white; 
   border: 3px solid white;
@@ -59,7 +71,7 @@
 }
 
 form, form button, input {
-  font-family: 'BIZ UDPMincho', serif
+  font-family: 'Cormorant Garamond', serif;
 }
 
 form  > button {

@@ -64,31 +64,33 @@ const Admin = ({updateError, projects, setProjects}) => {
     <>
     {
         !user.isAuthorized ? 
-          <>
+        <div className='admin'>
             <h1>ADMIN</h1>
             <p style={{textAlign: 'center'}}>This page is intended for portfolio administrator use only. Attempting to log in as a non-admin user will redirect you to the home page!</p>
-            <GoogleLogin
-              shape='pill'
-              size='large'
-              onSuccess={async credentialResponse => {
-                try {
-                  const user = await getAuthorizedUser(credentialResponse.credential)
-                  
-                  if (user.isAuthorized) {
-                    setUser(user)
-                  } else {
-                    throw new Error('Login Failed. Please try again with different credentials.') 
-                  }     
-                } catch (error) {
+            <div className='google-container'>
+              <GoogleLogin
+                shape='pill'
+                size='large'
+                onSuccess={async credentialResponse => {
+                  try {
+                    const user = await getAuthorizedUser(credentialResponse.credential)
+                    
+                    if (user.isAuthorized) {
+                      setUser(user)
+                    } else {
+                      throw new Error('Login Failed. Please try again with different credentials.') 
+                    }     
+                  } catch (error) {
+                    navigate('/')
+                  }
+                  }
+                }
+                onError={() => {
                   navigate('/')
-                }
-                }
-              }
-              onError={() => {
-                navigate('/')
-              }}
-            />
-          </>
+                }}
+              />
+            </div>
+          </div>
         :    
           <>
           <NewProjectForm updateProject={updateProject} project={project} submitProject={submitProject} adjustLoginNeeded={adjustLoginNeeded} setPostSuccess={setPostSuccess}/>
