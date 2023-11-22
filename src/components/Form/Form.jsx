@@ -25,7 +25,7 @@ const Form = () => {
             </select>
             : el === 'message'
             ? <textarea className='form-input' id={el} name={el} value={formValues[el]} onChange={(e) => handleChange(el, e.target.value)} required/>
-            : <input className='form-input' id={el} name={el} type='text' value={formValues[el]} onChange={(e) => handleChange(el, e.target.value)} required/>
+            : <input className='form-input' id={el} name={el} type={el === 'email' ? 'email' : 'text'} value={formValues[el]} onChange={(e) => handleChange(el, e.target.value)} required/>
         }
     </div>
     )
@@ -36,8 +36,18 @@ const Form = () => {
   }
 
   return (
-  <form className='inquiry-form'>
-    {formEls}
+    <form className='inquiry-form' onSubmit={(e) => {
+      e.preventDefault();
+      console.log(formValues)
+      setFormValues({
+        name: '', 
+        email: '', 
+        inquiry: 'Web Services', 
+        message: ''
+      })
+  }}>
+      {formEls}
+      <button className='contact-btn' style={{ gridColumn: 'span 2 / span 2', border: 'none', width: '200px', justifySelf: 'center' }}>Submit</button>
   </form>
   )
 }

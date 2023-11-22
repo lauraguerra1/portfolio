@@ -21,6 +21,7 @@
 .form-input {
   border: none;
   background: none;
+  font-size: 18px;
 }
 
 .form-input:focus {
@@ -36,6 +37,10 @@
 #messageContainer {
   flex-direction: column;
   align-items: flex-start;
+}
+
+#email, #name {
+  width: 80%;
 }
 
 #message {
