@@ -9,16 +9,35 @@ const Form = () => {
     message: ''
   })
 
+  const formEls = Object.keys(formValues).map(el => {
+    const isInquiry = el === 'inquiry'
+    return (
+    <div className='form-element' id={`${el}Container`}>
+        <label htmlFor={el}>{`${isInquiry ? 'Reason For' : ''} ${el.charAt(0).toUpperCase() + el.slice(1)}`}</label>
+        {
+          isInquiry
+            ?
+            <select className='form-input' id={el} name={el} value={formValues[el]} onChange={(e) => handleChange(el, e.target.value)} required>
+              <option value='Web Services'>Web Services</option>
+              <option value='Networking'>Networking</option>
+              <option value='Mentorship'>Mentorship</option>
+              <option value='Other'>Other</option>
+            </select>
+            : el === 'message'
+            ? <textarea className='form-input' id={el} name={el} value={formValues[el]} onChange={(e) => handleChange(el, e.target.value)} required/>
+            : <input className='form-input' id={el} name={el} type='text' value={formValues[el]} onChange={(e) => handleChange(el, e.target.value)} required/>
+        }
+    </div>
+    )
+  })
+
   const handleChange = (elementName, elementValue) => {
     setFormValues(prev => ({...prev, [elementName]: elementValue}))
   }
 
   return (
-    <form className='inquiry-form'>
-    <div className='form-element'>
-      <label htmlFor='name'>Name</label>
-      <input className='form-input' id='name' name='name' type='text' value={formValues.name} onChange={(e) => handleChange(e.target.name, e.target.value)} required/>
-    </div>
+  <form className='inquiry-form'>
+    {formEls}
   </form>
   )
 }

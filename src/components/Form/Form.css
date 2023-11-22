@@ -1,11 +1,13 @@
 .inquiry-form {
   display: grid;
   grid-template-columns: 1fr, 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
 }
 
 .form-element {
   display: flex; 
-  justify-content: center;
+  justify-content: space-between;
   border-bottom: 1px solid black;
 }
 
@@ -23,6 +25,26 @@
   outline: none;
 }
 
-.col-span-2 {
+#inquiryContainer, #messageContainer {
+  border-bottom: 0px;
   grid-column: span 2 / span 2;
+}
+
+
+#messageContainer {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#message {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  resize: none;
+}
+
+#inquiry {
+  border-bottom: 1px solid black;
+  font-size: 18px;
+  width: 49%;
 }
