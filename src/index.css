@@ -67,6 +67,10 @@ h1, .heading-link {
   font-weight: lighter;
 }
 
+.page-header {
+  font-size: 30px;
+}
+
 button {
   color: black;
   cursor: pointer;
