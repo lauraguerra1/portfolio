@@ -1,27 +1,26 @@
 import './Contact.css'
+import Form from '../Form/Form'
 
-import Linkbar from '../Linkbar/Linkbar'
-import Link from '../Link/Link'
-
-import lggLogo from '../../images/lgg-logo.png'
-import schedule from '../../images/schedule-icon.png'
-
-const Contact = ({mainLinks}) => {
+const Contact = () => {
   return (
     <section className='column-flex descriptive-section contact-section'>
-      <h1 className='page-header'>CONTACT</h1>
       <div className='contact-details-container'>
-        <img className='brand-logo' src={lggLogo} alt='Laura Garcia Guerra brand logo'/>
+        <div className='contact-info'>
+          <div>
+            <h1 style={{margin: '10px 0px'}}>CONTACT<br/>INFORMATION</h1>
+            <p style={{fontSize: '18px'}}>Email: l.garciaguerra1@gmail.com</p>
+            <p style={{fontSize: '18px'}}>Phone: 310-770-6009</p>
+          </div>
+          <div>
+            <a className='contact-btn' href='https://www.linkedin.com/in/laura-garcia-guerra/' target='_blank'>Visit LinkedIn</a>
+            <a className='contact-btn' href='https://github.com/lauraguerra1' target='_blank'>Visit GitHub</a>
+          </div>
+        </div>
         <div className='contact-details'>
-            <div className='meeting'>
-              <p>Schedule a meeting here:</p>
-              <Link src={schedule} location={'Laura Guerra\'s Schedule'} href={'https://calendly.com/laura-guerra-calendar/30min'}/>
-            </div>
-            <p>Email: l.garciaguerra1@gmail.com</p>
-            <p>Phone: (310)770-6009</p>
+          <h2 style={{margin: '10px 0px'}}>GET IN TOUCH</h2>
+          <Form />
         </div>
       </div>
-      <Linkbar links={mainLinks}/>
     </section>
   )
 }

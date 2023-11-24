@@ -24,7 +24,6 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [projects, setProjects] = useState([]);
 
-  const mainLinks = [{logo: githubLogo, location: 'GitHub', href: 'https://github.com/lauraguerra1'}, {logo: linkedInLogo, location: 'LinkedIn', href: 'https://www.linkedin.com/in/laura-garcia-guerra-b9b431170/'}, {logo: emailLogo, location: 'Laura Guerra\'s email', href: 'mailto: l.garciaguerra1@gmail.com'}]
   const updateError = (error) => setError(error)
   
   const changeScreenSizeMode = () => {
@@ -87,7 +86,7 @@ const App = () => {
             <Route path='/' element={<Home smallScreen={smallScreen} />} />
             <Route path='/about' element={<About />} />
             <Route path='/projects' element={<Projects projects={projects} loading={loading} deleteProject={null} />} />
-            <Route path='/contact' element={<Contact mainLinks={mainLinks}/>} />
+            <Route path='/contact' element={<Contact />} />
             <Route path='/admin' element={<Admin updateError={updateError} projects={projects} setProjects={setProjects} />} />
             {['', '/'].map((route, i) => <Route key={i} path={route + '*'} element={<Empty />} />)}
           </Routes>

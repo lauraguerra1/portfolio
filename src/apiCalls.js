@@ -42,4 +42,17 @@ const deleteProject = async (projectID) => {
   return data
 }
 
-export {getAuthorizedUser, getProjects, postProject, deleteProject}
+const sendMail = async (messageDetails) => {
+  const res = await fetch(`https://lgg-portfolio-api.vercel.app/api/v1/mail`, {
+    method: 'POST', 
+    body: JSON.stringify(messageDetails),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+  const data = handleError(res)
+  return data
+}
+
+export {getAuthorizedUser, getProjects, postProject, deleteProject, sendMail}

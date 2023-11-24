@@ -1,0 +1,87 @@
+.inquiry-form {
+  display: grid;
+  grid-template-columns: 1fr, 1fr;
+  row-gap: 20px;
+  column-gap: 10px;
+  width: 60vw;
+  max-width: 800px;
+  margin-top: 5vh;
+}
+
+.form-element {
+  display: flex; 
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.form-element label {
+  padding-right: 5px;
+  font-size: 18px;
+}
+
+.form-input {
+  border: none;
+  background: none;
+  font-size: 18px;
+}
+
+.form-input:focus {
+  outline: none;
+}
+
+.feedback {
+  grid-column: span 2 / span 2; 
+  font-size: 20px;
+  text-align: center;
+}
+
+#inquiryContainer, #messageContainer {
+  border-bottom: 0px;
+  grid-column: span 2 / span 2;
+}
+
+
+#messageContainer {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#email, #name {
+  width: 80%;
+}
+
+#message {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  resize: none;
+}
+
+#inquiry {
+  border-bottom: 1px solid black;
+  font-size: 18px;
+  width: 49%;
+}
+
+@media screen and (max-width: 1000px) {
+  .inquiry-form {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  #nameContainer, #emailContainer {
+    grid-column: span 2 / span 2;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #inquiryContainer {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  #inquiry {
+    width: 100%;
+  }
+}

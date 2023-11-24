@@ -76,6 +76,19 @@ button {
   cursor: pointer;
 }
 
+
+.contact-btn {
+  color: black;
+  text-decoration: none;
+  margin: 20px 0px;
+  padding: 10px;
+  background: #F5F0E5;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: large;
+  cursor: pointer;
+  min-width: 150px;
+ }
+
 ::-webkit-scrollbar {
   width: 10px;
 
