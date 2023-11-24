@@ -1,3 +1,5 @@
+import Toggler from "../../Toggler/Toggler";
+
 const NewProjectForm = ({ updateProject, submitProject, project, adjustLoginNeeded, setPostSuccess }) => {
 
   const mainInputs = ['Title', 'Description', 'Tech', 'Link', 'Gh', 'Image'].map(input => {
@@ -18,11 +20,7 @@ const NewProjectForm = ({ updateProject, submitProject, project, adjustLoginNeed
         </div>
         <div className='instructions-options'>
           <p>Login Instructions Needed? </p> 
-          <div className='toggler'>
-            <button type='button' className={`${project.loginInfo ? 'selected-option' : 'unselected-option'} pointer yes`} onClick={adjustLoginNeeded}>Yes</button>
-            
-            <button  type='button' className={`${project.loginInfo ? 'unselected-option' : 'selected-option'} pointer no`}onClick={adjustLoginNeeded}>No</button>
-          </div>
+          <Toggler onClick={adjustLoginNeeded} value={project.loginInfo} option1='Yes' option2='No'/>
         </div>
         {
           project.loginInfo &&
