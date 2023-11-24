@@ -21,8 +21,9 @@
 
 .form-input {
   border: none;
-  background: none;
+  background: rgba(255, 255, 255, 0.173);
   font-size: 18px;
+  color: black;
 }
 
 .form-input:focus {
