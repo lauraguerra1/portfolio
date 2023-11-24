@@ -1,10 +1,11 @@
 .inquiry-form {
   display: grid;
   grid-template-columns: 1fr, 1fr;
-  row-gap: 10px;
+  row-gap: 20px;
   column-gap: 10px;
   width: 60vw;
   max-width: 800px;
+  margin-top: 5vh;
 }
 
 .form-element {

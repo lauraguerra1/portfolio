@@ -11,7 +11,7 @@ const NewProjectForm = ({ updateProject, submitProject, project, adjustLoginNeed
   })
 
   return (
-    <form onFocus={() => setPostSuccess('')} onSubmit={submitProject} className='w-80 column-flex-default'>
+    <form id='newProjForm' onFocus={() => setPostSuccess('')} onSubmit={submitProject} className='w-80 column-flex-default'>
       <h1 style={{textAlign: 'center', marginBottom: '30px'}}>New Project</h1>
         <div className='display-grid'>
           {mainInputs}
