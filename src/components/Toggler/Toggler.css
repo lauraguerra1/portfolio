@@ -1,25 +1,38 @@
 .toggler {
-  display: flex; 
-  width: 140px;
+  display: flex;
+  justify-content: center; 
+  text-align: center;
+  width: min-content;
+  background: rgba(229, 229, 229, 0.44);
+  border-radius: 5px;
 }
 
 .toggler button { 
-  width: 70px;
+  padding: 5px;
+  font-size: 24px;
+  border-radius: 5px;
+  white-space: nowrap;
 }
 
 .unselected-option {
-  background-color: white; 
-  border: 3px solid white;
+  background-color: #00000000; 
+  border: none;
 }
 
 .selected-option {
-  border: 1px solid pink;
+  background-color: #F5F0E5;
+  border: 1px solid #BEA46B;
 }
 
-.option1 {
-  border-radius: 5px 0px 0px 5px;
+@media screen and (max-width: 475px) {
+  .toggler button {
+    font-size: 22px;
+  }
 }
 
-.option2 {
-  border-radius: 0px 5px 5px 0px;
+
+@media screen and (max-width: 445px) {
+  .toggler button {
+    white-space: normal;
+  }
 }

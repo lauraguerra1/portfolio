@@ -21,12 +21,12 @@ const Contact = () => {
           </div>
         </div>
         <div className='contact-details'>
-          <Toggler option1='GET IN TOUCH' option2='BOOK A MEETING' onClick={() => setViewingForm(prev => !prev)} value={viewingForm} style={{ margin: '10px 0px' }} />
-          <div className={viewingForm ? '' : 'hidden'}>
+          <Toggler option1='GET IN TOUCH' option2='BOOK A MEETING' onClick={() => setViewingForm(prev => !prev)} value={viewingForm} style={{ marginTop: '20px' }} />
+          <div className={viewingForm ? '' : 'hidden'} >
             <Form />
           </div>
-          <div className={viewingForm ? 'hidden' : ''}>
-            <InlineWidget url='https://calendly.com/laura-guerra-calendar/30min' />}
+          <div className={viewingForm ? 'hidden' : 'inquiry-form'} id='widgetContainer'>
+            <InlineWidget url='https://calendly.com/laura-guerra-calendar/30min' />
           </div>
         </div>
       </div>
