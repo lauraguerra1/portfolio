@@ -29,7 +29,6 @@ const Form = () => {
     } catch (error) {
       setMailStatus({ message: 'Whoops! Something went wrong. Please try again.', style: { color: '#d70f0f'}});
     }
-
     resetForm({ message: 'Sucess! Message sent.', style: { } })
   }
 
@@ -41,15 +40,15 @@ const Form = () => {
         {
           isInquiry
             ?
-            <select className='form-input' id={el} name={el} value={formValues[el]} onChange={(e) => handleChange(el, e.target.value)} required>
+            <select className='form-input' id={el} name={el} value={formValues[el]} onFocus={() => setMailStatus(null)} onChange={(e) => handleChange(el, e.target.value)} required>
               <option value='Web Services'>Web Services</option>
               <option value='Networking'>Networking</option>
               <option value='Mentorship'>Mentorship</option>
               <option value='Other'>Other</option>
             </select>
             : el === 'message'
-            ? <textarea className='form-input' id={el} name={el} value={formValues[el]} onChange={(e) => handleChange(el, e.target.value)} required/>
-            : <input className='form-input' id={el} name={el} type={el === 'email' ? 'email' : 'text'} value={formValues[el]} onChange={(e) => handleChange(el, e.target.value)} required/>
+            ? <textarea className='form-input' id={el} name={el} value={formValues[el]} onFocus={() => setMailStatus(null)} onChange={(e) => handleChange(el, e.target.value)} required/>
+            : <input className='form-input' id={el} name={el} type={el === 'email' ? 'email' : 'text'} value={formValues[el]} onFocus={() => setMailStatus(null)} onChange={(e) => handleChange(el, e.target.value)} required/>
         }
     </div>
     )
@@ -60,16 +59,7 @@ const Form = () => {
   }
 
   return (
-    <form className='inquiry-form' onSubmit={(e) => {
-      e.preventDefault();
-      console.log(formValues)
-      setFormValues({
-        name: '', 
-        email: '', 
-        inquiry: 'Web Services', 
-        message: ''
-      })
-  }}>
+    <form className='inquiry-form' onSubmit={submitForm}>
       {formEls}
       {!mailStatus
         ? <button className='contact-btn' style={{ gridColumn: 'span 2 / span 2', border: 'none', width: '200px', justifySelf: 'center' }}>Submit</button> 
