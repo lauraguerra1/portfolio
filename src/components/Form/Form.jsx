@@ -35,7 +35,7 @@ const Form = () => {
   const formEls = Object.keys(formValues).map(el => {
     const isInquiry = el === 'inquiry'
     return (
-    <div className='form-element' id={`${el}Container`}>
+      <div key={el} className='form-element' id={`${el}Container`}>
         <label htmlFor={el}>{`${isInquiry ? 'Reason For' : ''} ${el.charAt(0).toUpperCase() + el.slice(1)}`}</label>
         {
           isInquiry
