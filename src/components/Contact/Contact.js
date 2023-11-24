@@ -1,5 +1,6 @@
 import './Contact.css'
-import Form from '../Form/Form'
+import Form from '../Form/Form';
+import { InlineWidget } from 'react-calendly';
 
 const Contact = () => {
   return (
@@ -18,7 +19,8 @@ const Contact = () => {
         </div>
         <div className='contact-details'>
           <h2 style={{margin: '10px 0px'}}>GET IN TOUCH</h2>
-          <Form />
+          {/* <Form /> */}
+          <InlineWidget url='https://calendly.com/laura-guerra-calendar/30min'/>
         </div>
       </div>
     </section>
