@@ -1,0 +1,25 @@
+.toggler {
+  display: flex; 
+  width: 140px;
+}
+
+.toggler button { 
+  width: 70px;
+}
+
+.unselected-option {
+  background-color: white; 
+  border: 3px solid white;
+}
+
+.selected-option {
+  border: 1px solid pink;
+}
+
+.option1 {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.option2 {
+  border-radius: 0px 5px 5px 0px;
+}
