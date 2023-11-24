@@ -28,6 +28,12 @@
   outline: none;
 }
 
+.feedback {
+  grid-column: span 2 / span 2; 
+  font-size: 20px;
+  text-align: center;
+}
+
 #inquiryContainer, #messageContainer {
   border-bottom: 0px;
   grid-column: span 2 / span 2;

@@ -1,13 +1,37 @@
 import './Form.css'
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { sendMail } from '../../apiCalls';
 
 const Form = () => {
+  const [mailStatus, setMailStatus] = useState(null)
   const [formValues, setFormValues] = useState({
     name: '', 
     email: '', 
     inquiry: 'Web Services', 
     message: ''
   })
+
+  const resetForm = (status) => {
+    setMailStatus(status)
+    setFormValues({
+      name: '',
+      email: '',
+      inquiry: 'Web Services',
+      message: ''
+    })
+  }
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+    setMailStatus({ message: 'Sending, please wait...', style: { fontStyle: 'italic'}});
+    try {
+      await sendMail(formValues);
+    } catch (error) {
+      setMailStatus({ message: 'Whoops! Something went wrong. Please try again.', style: { color: '#d70f0f'}});
+    }
+
+    resetForm({ message: 'Sucess! Message sent.', style: { } })
+  }
 
   const formEls = Object.keys(formValues).map(el => {
     const isInquiry = el === 'inquiry'
@@ -47,7 +71,10 @@ const Form = () => {
       })
   }}>
       {formEls}
-      <button className='contact-btn' style={{ gridColumn: 'span 2 / span 2', border: 'none', width: '200px', justifySelf: 'center' }}>Submit</button>
+      {!mailStatus
+        ? <button className='contact-btn' style={{ gridColumn: 'span 2 / span 2', border: 'none', width: '200px', justifySelf: 'center' }}>Submit</button> 
+        : <p className='feedback' style={mailStatus.style}>{mailStatus.message}</p>
+      }
   </form>
   )
 }
