@@ -67,3 +67,20 @@
     width: 80vw;
   }
 }
+
+@media screen and (max-width: 540px) {
+  #nameContainer, #emailContainer {
+    grid-column: span 2 / span 2;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #inquiryContainer {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  #inquiry {
+    width: 100%;
+  }
+}
