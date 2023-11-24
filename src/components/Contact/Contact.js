@@ -1,7 +1,11 @@
 import './Contact.css'
-import Form from '../Form/Form'
+import Form from '../Form/Form';
+import { InlineWidget } from 'react-calendly';
+import Toggler from '../Toggler/Toggler';
+import { useState } from 'react';
 
 const Contact = () => {
+  const [viewingForm, setViewingForm] = useState(true)
   return (
     <section className='column-flex descriptive-section contact-section'>
       <div className='contact-details-container'>
@@ -17,8 +21,13 @@ const Contact = () => {
           </div>
         </div>
         <div className='contact-details'>
-          <h2 style={{margin: '10px 0px'}}>GET IN TOUCH</h2>
-          <Form />
+          <Toggler option1='GET IN TOUCH' option2='BOOK A MEETING' onClick={() => setViewingForm(prev => !prev)} value={viewingForm} style={{ marginTop: '20px' }} />
+          <div className={viewingForm ? '' : 'hidden'} >
+            <Form />
+          </div>
+          <div className={viewingForm ? 'hidden' : 'inquiry-form'} id='widgetContainer'>
+            <InlineWidget url='https://calendly.com/laura-guerra-calendar/30min' />
+          </div>
         </div>
       </div>
     </section>

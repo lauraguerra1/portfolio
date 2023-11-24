@@ -25,6 +25,9 @@
 }
 
 .contact-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-left: 1px solid black;
   padding-left: 20px;
 }
@@ -37,6 +40,12 @@
   margin: auto;
   justify-content: center;
   animation: fadeInRegular 1s ease-in;
+}
+
+#widgetContainer {
+  max-width: 90vw;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 @media screen and (max-width: 1000px) {

@@ -1,0 +1,38 @@
+.toggler {
+  display: flex;
+  justify-content: center; 
+  text-align: center;
+  width: min-content;
+  background: rgba(229, 229, 229, 0.44);
+  border-radius: 5px;
+}
+
+.toggler button { 
+  padding: 5px;
+  font-size: 24px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.unselected-option {
+  background-color: #00000000; 
+  border: none;
+}
+
+.selected-option {
+  background-color: #F5F0E5;
+  border: 1px solid #BEA46B;
+}
+
+@media screen and (max-width: 475px) {
+  .toggler button {
+    font-size: 22px;
+  }
+}
+
+
+@media screen and (max-width: 445px) {
+  .toggler button {
+    white-space: normal;
+  }
+}

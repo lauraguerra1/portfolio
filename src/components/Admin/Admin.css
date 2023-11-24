@@ -10,22 +10,7 @@
   display: flex;
   justify-content: center;
 }
-.unselected-option {
-  background-color: white; 
-  border: 3px solid white;
-}
 
-.selected-option {
-  border: 1px solid pink;
-}
-
-.yes {
-  border-radius: 5px 0px 0px 5px;
-}
-
-.no {
-  border-radius: 0px 5px 5px 0px;
-}
 
 .instructions-options {
   display: flex; 
@@ -84,15 +69,6 @@ form  > button {
 #newProjForm {
   margin-top: 10vh;
   margin-bottom: 10vh;
-}
-
-.toggler {
-  display: flex; 
-  width: 140px;
-}
-
-.toggler button { 
-  width: 70px;
 }
 
 .post-success {
