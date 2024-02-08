@@ -17,7 +17,7 @@ const SingleProject = ({ deleteProject, projectDescription, src, title, tech, li
     <div key={index + 'b'} className='descriptive-section single-project-section'>
       <h2>{title.toUpperCase()}</h2>
       <p>{projectDescription}</p>
-      <p>Techologies:</p>
+      <p>Technologies:</p>
       <p>{tech}</p>
       {instructions && <p>username: {instructions.split(',')[0]}</p>}
       {instructions && <p>password: {instructions.split(',')[1]}</p>}
