@@ -15,7 +15,7 @@
   animation: fadeInRegular 1.5s ease-in;
 }
 
-.single-project > a > img {
+.single-project > a > img, .non-link-img {
   position: relative;
   height: 300px;
   width: 400px;
