@@ -8,7 +8,8 @@ const Form = () => {
     name: '', 
     email: '', 
     inquiry: 'Web Services', 
-    message: ''
+    message: '', 
+    botCatcher: ''
   })
 
   const resetForm = (status) => {
@@ -17,23 +18,30 @@ const Form = () => {
       name: '',
       email: '',
       inquiry: 'Web Services',
-      message: ''
+      message: '',
+      botCatcher: ''
     })
   }
 
   const submitForm = async (e) => {
     e.preventDefault();
-    setMailStatus({ message: 'Sending, please wait...', style: { fontStyle: 'italic'}});
-    try {
-      await sendMail(formValues);
-    } catch (error) {
-      setMailStatus({ message: 'Whoops! Something went wrong. Please try again.', style: { color: '#d70f0f'}});
+    if (!formValues.botCatcher) {
+      const {botCatcher, ...remainingValues} = formValues
+      setMailStatus({ message: 'Sending, please wait...', style: { fontStyle: 'italic'}});
+      try {
+        await sendMail(remainingValues);
+      } catch (error) {
+        setMailStatus({ message: 'Whoops! Something went wrong. Please try again.', style: { color: '#d70f0f'}});
+      }
+      resetForm({ message: 'Sucess! Message sent.', style: { } })
     }
-    resetForm({ message: 'Sucess! Message sent.', style: { } })
   }
 
   const formEls = Object.keys(formValues).map(el => {
     const isInquiry = el === 'inquiry'
+    if (el === `botCatcher`) {
+      return <input type="text" name="phone" style={{display: `none`}} value={formValues.botCatcher} onChange={(e) => handleChange('botCatcher', e.target.value)} autoComplete="off" tabIndex="-1"/>
+    }
     return (
       <div key={el} className='form-element' id={`${el}Container`}>
         <label htmlFor={el}>{`${isInquiry ? 'Reason For' : ''} ${el.charAt(0).toUpperCase() + el.slice(1)}`}</label>
